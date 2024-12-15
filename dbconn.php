@@ -2,9 +2,9 @@
 
 // Database connection
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bubblecart";
+$username = "u143688490_user";
+$password = "Kyuzumi112";
+$dbname = "u143688490_bubblecart";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
