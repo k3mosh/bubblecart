@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100 h-screen flex overflow-hidden">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white shadow-lg hidden md:flex flex-col">
+    <div class="p-4 border-b">
+      <h1 class="text-xl font-bold text-gray-700">Admin Dashboard</h1>
+    </div>
+    <nav class="mt-4 flex-1">
+      <ul class="space-y-2">
+        <li><a href="#" id="dashboard-btn" class="block py-2 px-4 text-gray-600 hover:bg-blue-100 hover:text-blue-600">Dashboard</a></li>
+        <li><a href="#" id="users-btn" class="block py-2 px-4 text-gray-600 hover:bg-blue-100 hover:text-blue-600">Users</a></li>
+        <li><a href="#" id="reports-btn" class="block py-2 px-4 text-gray-600 hover:bg-blue-100 hover:text-blue-600">Reports</a></li>
+        <li><a href="#" id="settings-btn" class="block py-2 px-4 text-gray-600 hover:bg-blue-100 hover:text-blue-600">Settings</a></li>
+        <li><a href="#" id="menu-items-btn" class="block py-2 px-4 text-gray-600 hover:bg-blue-100 hover:text-blue-600">Menu Items</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Mobile Sidebar -->
+  <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden">
+    <aside class="w-64 bg-white h-full shadow-lg">
+      <div class="p-4 border-b">
+        <h1 class="text-xl font-bold text-gray-700">Admin Dashboard</h1>
+      </div>
+      <nav class="mt-4">
+        <ul class="space-y-2">
+          <li><a href="#" id="mobile-dashboard-btn" class="block py-2 px-4 text-gray-600 hover:bg-blue-100 hover:text-blue-600">Dashboard</a></li>
+          <li><a href="#" id="mobile-users-btn" class="block py-2 px-4 text-gray-600 hover:bg-blue-100 hover:text-blue-600">Users</a></li>
+          <li><a href="#" id="mobile-reports-btn" class="block py-2 px-4 text-gray-600 hover:bg-blue-100 hover:text-blue-600">Reports</a></li>
+          <li><a href="#" id="mobile-settings-btn" class="block py-2 px-4 text-gray-600 hover:bg-blue-100 hover:text-blue-600">Settings</a></li>
+          <li><a href="#" id="mobile-menu-items-btn" class="block py-2 px-4 text-gray-600 hover:bg-blue-100 hover:text-blue-600">Menu Items</a></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-1 flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-white shadow p-4 flex justify-between items-center">
+      <button id="menu-toggle" class="md:hidden block text-gray-600">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+      <h1 class="text-lg font-semibold text-gray-700">Welcome, Admin</h1>
+      <div>
+        <button class="text-gray-600 hover:text-blue-600">Logout</button>
+      </div>
+    </header>
+
+    <!-- Dashboard Content -->
+    <main href="das" class="flex-1 p-4 overflow-hidden">
+      <div id="content">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Stat Card -->
+          <div class="bg-white p-4 shadow rounded-lg">
+            <h2 class="text-sm font-semibold text-gray-600">Users</h2>
+            <p class="mt-2 text-3xl font-bold text-gray-800">1,234</p>
+          </div>
+          <div class="bg-white p-4 shadow rounded-lg">
+            <h2 class="text-sm font-semibold text-gray-600">Revenue</h2>
+            <p class="mt-2 text-3xl font-bold text-gray-800">$12,345</p>
+          </div>
+          <div class="bg-white p-4 shadow rounded-lg">
+            <h2 class="text-sm font-semibold text-gray-600">Orders</h2>
+            <p class="mt-2 text-3xl font-bold text-gray-800">567</p>
+          </div>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="mt-8 bg-white shadow rounded-lg p-4">
+          <h2 class="text-lg font-semibold text-gray-700 mb-4">Sales and User Growth</h2>
+          <canvas id="salesChart" class="w-full h-64"></canvas>
+        </div>
+
+        <!-- Menu Items CRUD Section -->
+        <div class="mt-8 bg-white shadow rounded-lg p-4">
+          <h2 class="text-lg font-semibold text-gray-700 mb-4">Manage Menu Items</h2>
+          <div class="mb-4">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-600">Add New Item</button>
+          </div>
+          <table class="table-auto w-full">
+            <thead>
+              <tr class="text-left text-gray-600">
+                <th class="px-4 py-2">Item Name</th>
+                <th class="px-4 py-2">Category</th>
+                <th class="px-4 py-2">Price</th>
+                <th class="px-4 py-2">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-gray-700">
+                <td class="px-4 py-2">Milk Tea</td>
+                <td class="px-4 py-2">Beverage</td>
+                <td class="px-4 py-2">$3.50</td>
+                <td class="px-4 py-2">
+                  <button class="bg-green-500 text-white px-2 py-1 rounded shadow hover:bg-green-600">Edit</button>
+                  <button class="bg-red-500 text-white px-2 py-1 rounded shadow hover:bg-red-600">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Sidebar button functionality
+    document.getElementById('dashboard-btn').addEventListener('click', () => loadContent('Dashboard Content Loaded'));
+    document.getElementById('users-btn').addEventListener('click', () => loadContent('User Management Content Loaded'));
+    document.getElementById('reports-btn').addEventListener('click', () => loadContent('Reports Content Loaded'));
+    document.getElementById('settings-btn').addEventListener('click', () => loadContent('Settings Content Loaded'));
+    document.getElementById('menu-items-btn').addEventListener('click', () => loadContent('Menu Items Content Loaded'));
+
+    function loadContent(message) {
+      const content = document.getElementById('content');
+      content.innerHTML = `<div class='text-center mt-20 text-xl font-bold text-gray-700'>${message}</div>`;
+    }
+
+    // Chart.js
+    const ctx = document.getElementById('salesChart').getContext('2d');
+    const salesChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+        datasets: [
+          {
+            label: 'Sales',
+            data: [1200, 1900, 3000, 5000, 2300, 4000],
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            tension: 0.4
+          },
+          {
+            label: 'Users',
+            data: [800, 1200, 1500, 2000, 1800, 2400],
+            borderColor: 'rgba(255, 99, 132, 1)',
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            tension: 0.4
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+        },
+
+        scales: {
+          x: {
+            beginAtZero: true
+          },
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

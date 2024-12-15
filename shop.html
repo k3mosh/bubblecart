@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Baloo 2', sans-serif;
+            overflow: hidden;
+        }
+        div::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+}
+
+       
+  #burger.open .bar:nth-child(1) {
+    transform: rotate(45deg) translateY(13.5px);
+  }
+  
+  #burger.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  #burger.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translateY(-13.5px);
+  }
+
+
+    </style>
+    <title>Shop-Tailwind</title>
+</head>
+<body style="background: linear-gradient(to right, #e0f7ec, #A8E6CF); ">
+    <header class="w-full h-[70px] bg-[#2B8A6D] shadow-md flex items-center z-50 justify-between md:pr-6 px-6 md:px-0 md:pl-40 md:justify-none fixed top-0">
+        <div class="flex items-center">   
+            <div class="h-[45px] w-auto mr-10">
+                <img src="../asset/logo.png" alt="logo" class="w-auto h-[45px] ">
+            </div>
+            <div class="w-fit h-fit hidden sm:block flex ">
+                <a class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out" href="index.html">Home</a>
+                <a class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out mx-6" href="" >Craft Now</a>
+                <a class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out" href="about.html">About Us</a>
+            </div>
+        </div>
+        <div class="flex items-center hidden sm:block">
+            <a class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out" href="user_login.html">Log In</a>
+            <a class="font-bold text-[18px] text-[#004D40] mx-6 hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out" href="user_signup.html">Sign Up</a>
+            <a class="font-bold text-[18px] text-[#004D40] hidden" href="">Account</a>
+            <a class="fa-solid fa-user text-[#0E2E24] text-[20px] text-center cursor-pointer" href="admin.html"></a>
+        </div>
+        <div id="burger" onclick="menu()" class="flex flex-col justify-between w-8 h-6 cursor-pointer md:hidden">
+            <span class="bar bg-[#004D40] h-1 w-full origin-center transition-transform duration-300 ease-in-out"></span>
+            <span class="bar bg-[#004D40] h-1 w-full origin-center transition-transform duration-300 ease-in-out"></span>
+            <span class="bar bg-[#004D40] h-1 w-full origin-center transition-transform duration-300 ease-in-out"></span>
+        </div>
+    </header>
+
+    <!--Menu Modal -->
+    <div id="menu" class="md:hidden fixed top-0 mt-[70px] left-0 w-full h-full z-50 flex justify-end opacity-0 translate-x-full transition-all ease-in-out duration-300">
+        <div id="content" class="w-[240px] relative h-full bg-[#5CA891]  py-[20px] flex flex-col items-center">
+            <div class="flex justify-end items-center w-full h-fit pr-6"> 
+                <a class="fa-solid fa-user text-[#0E2E24] text-[20px] text-center cursor-pointer" href="admin.html"></a>
+            </div>
+            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                <a href="index.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">Home</a>
+            </div>
+            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                <a href="" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">Craft Now</a>
+            </div>
+            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                <a href="about.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">About Us</a>
+            </div>
+            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                <a href="user_login.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">Log In</a>
+            </div>
+            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                <a href="user_signup.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">Sign Up</a>
+            </div>
+            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                <a href="" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out hidden">Account</a>
+            </div>
+        </div>
+    </div>
+     <!-- Body  -->
+     <div class="w-screen h-full  pt-[70px] flex flex-col md:flex-col justify-center pb-[30px] " >
+        <div class="w-full h-fit mt-7 flex justify-center items-center mf;">
+            <p class="font-baloo2 font-bold text-[#004D40] text-[38px] md:text-[70px]">Explore Our Flavors</p>
+        </div>
+        
+        <!-- Cart button -->
+        <div id="cartModal" onclick="cart()" class="hover:bg-[#2a665c] transition h-[60px] w-[60px] bg-[#004d40] absolute rounded-[180px] flex justify-center items-center right-5 bottom-6 cursor-pointer">
+            <a class="fa-solid fa-cart-shopping text-[24px] text-[#B6EAD6]"></a>
+        </div>
+
+        <!-- Cart popup -->
+        <div id="cart" style="background: linear-gradient(to right, #e0f7ec, #A8E6CF); " class="fixed hi bottom-0 right-0 h-[350px] w-full md:max-w-[420px]  shadow-lg transform translate-y-full sm:translate-x-full sm:translate-y-0 transition-all duration-500 ease-in-out  rounded-tl-lg rounded-tr-lg sm:rounded-none sm:rounded-l-lg flex flex-col justify-between md:h-full md:pt-[70px] md:items-start md:justify-start">
+            <div class="flex justify-between items-center w-full h-14 bg-[#2B8A6D] px-7">
+                <h3 class="text-[22px] font-bold text-[#004d40] font-baloo2 ml-7">Your Cart</h3>
+                <button onclick="closeCart()" class="text-[#004d40] text-[32px] hover:bg-[#2a665c] transition">&times;</button>
+            </div>
+            <div class="h-full w-full flex flex-col items-center my-6 md:h-[720px] md:mt-[-20px] md:mb-9 mb-0">
+                <div id="cartItems" class="w-full h-[200px] flex flex-wrap gap-y-5 justify-center items-center overflow-y-auto md:items-start md:mt-10 md:h-auto py-6">
+
+                    <!-- ite4ms -->
+                    <div class="w-[320px] h-fit flex flex-row justify-center items-start rounded-lg bg-[#F2F8F8] border-[2px] border-[#62CD92]">
+                        <!-- Image Section -->
+                        <div class="w-[150px] h-fit flex justify-center items-center ml-5 mt-[10px]  py-2 rounded-lg">
+                            <img src="./uploads/mt1.png" class="w-[80px] h-full md:w-[140px] flex justify-left items-center rounded-[6px] ">
+                        </div>
+                        
+                        <!-- Details Section -->
+                        <div class="w-[320px] flex flex-col justify-start items-start pl-8 gap-y-3 pt-2 relative my-3">
+                            <p class=" text-[18px] font-extrabold text-[#004d40] font-baloo2">Match Majesty 
+                                <button id="ddi" type="button" class="text-gray-500 hover:text-gray-700 ml-6 relative " onclick="toggleDropdown(this)">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </p>
+                            <p class=" text-[18px] font-extrabold text-[#004d40] font-baloo2">₱99</p>
+                            <p class="">
+                                <span class=" text-[18px] font-extrabold text-[#004d40] font-baloo2 pr-2"> Qty. </span> 
+                                <button type="button"><a class="fas fa-minus w-[25px] h-[25px] bg-white border-2 border-[#004d40] flex justify-center items-center text-[#004d40]"></a></button>
+                                <span id="quantity" class="px-2 font-baloo2 text-[18px] text-[#004d40]">10</span>
+                                <button type="button"><a class="fas fa-plus w-[25px] h-[25px] bg-white flex justify-center items-center text-[#004d40] border-2 border-[#004d40]"></a></button>
+                                <button type="button"><a class="fa-solid fa-trash absolute right-0 bottom-1 mr-3 text-[18px] text-[#004d40]"></a></button>
+                            </p>
+                    
+                        <div id="ddtab" class="dropdown-tab hidden mt-2 bg-white  rounded-lg shadow-lg  z-50 absolute mr-3 left-[30px] top-[calc(100%+(-85px))] h-[125px] overflow-hidden border-2 border-[#62CD92]">
+                            <div class="sticky top-0 bg-white">
+                                <h3 class="text-lg font-bold text-[#004d40] flex justify-center items-center bg-slate-300">Order Details</h3>
+                            </div>
+                            <!-- Scrollable List -->
+                            <div class="h-[calc(100%-20px)] overflow-y-auto p-2">
+                                <ul class="text-sm text-gray-600">
+                                    <li> <span class=" font-bold font-baloo2 text-[#004d40] text-[20px]"> Size: </span> <span class="text-[18px] font-baloo2 text-[#004d40]">Large</span></li>
+                                    <li><span class=" font-bold font-baloo2 text-[#004d40] text-[20px]"> Milk Base: </span> <span class="text-[18px] font-baloo2 text-[#004d40]"> Regular Milk</span></li>
+                                    <li><span class=" font-bold font-baloo2 text-[#004d40] text-[20px]">Sugar Level:</span><span class="text-[18px] font-baloo2 text-[#004d40]"> 75%</span> </li>
+                                    <li><span class=" font-bold font-baloo2 text-[#004d40] text-[20px]" >Ice Level:</span>  <span class="text-[18px] font-baloo2 text-[#004d40]"> No Ice</span></li>
+                                    <li><span class=" font-bold font-baloo2 text-[#004d40] text-[20px]">Add-ons:</span> <span class="text-[18px] font-baloo2 text-[#004d40]"> Black Pearls, Pudding</span></li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                    <p class="text-center text-gray-500 hidden">Your cart is empty.</p>
+                </div>
+             </div>
+            
+            
+            
+            <div class="mt-4 flex justify-between items-center px-7 mb-3 md:w-full">
+                <button onclick="checkout()" class="hover:bg-[#2a665c] transition bg-[#004d40] text-white font-bold text-[20px] rounded-[180px] font-baloo2 w-[130px] h-[52px]">Checkout</button>
+                <p id="cartTotal" class="text-[#004d40] font-bold font-baloo2 text-[22px]">Total: ₱990.00</p>
+            </div>
+        </div>
+        
+
+
+        <div id="scroll" class="w-full h-[520px] px-5 mt-2 overflow-auto flex justify-center md:h-[700px]"> 
+
+            <!-- body ng list of items -->
+            <div id="menu-container" class="w-full h-fit flex flex-wrap gap-4 md:gap-5 justify-center pt-3 md:w-[1500px]">
+                <!-- Dynamic cards will be inserted here -->
+            </div>
+        </div>
+    </div>
+       
+
+    <script>
+        
+        function toggleDropdown(button) {
+    // Find the nearest dropdown tab relative to the clicked button
+    const dropdownTab = button.closest('.flex.flex-col').querySelector('.dropdown-tab');
+    const arrowIcon = document.getElementById("ddi");
+
+    // Toggle the hidden class to show/hide the dropdown tab
+    dropdownTab.classList.toggle('hidden');
+
+    if(dropdownTab.classList.contains("hidden")){
+        arrowIcon.style.transform = "rotate(0deg)";
+    } else {
+        arrowIcon.style.transform = "rotate(180deg)";
+    }
+}
+
+      function menu() {
+    const burger = document.getElementById("burger");
+    const menu = document.getElementById("menu");
+
+    // Toggle the menu visibility
+    menu.classList.toggle("opacity-0");
+    menu.classList.toggle("opacity-100");
+    menu.classList.toggle("translate-x-full");
+    menu.classList.toggle("translate-x-0");
+
+    // Animate the burger to X
+    burger.classList.toggle("open");
+}
+
+function cart() {
+    const cartModal = document.getElementById('cartModal');
+    const cartPopup = document.getElementById('cart');
+    
+    // Toggle cart visibility
+    if (cartPopup.classList.contains('translate-y-full') || cartPopup.classList.contains('sm:translate-x-full')) {
+        cartPopup.classList.remove('translate-y-full', 'sm:translate-x-full');
+    } else {
+        cartPopup.classList.add('translate-y-full', 'sm:translate-x-full');
+    }
+}
+
+function closeCart() {
+    const cartPopup = document.getElementById('cart');
+    cartPopup.classList.add('translate-y-full', 'sm:translate-x-full');
+}
+
+function addItemToCart(itemName, itemPrice) {
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+    
+    // Create a new cart item element
+    const cartItem = document.createElement('div');
+    cartItem.classList.add('flex', 'justify-between', 'items-center', 'py-2');
+    cartItem.innerHTML = `
+        <span>${itemName}</span>
+        <span>$${itemPrice.toFixed(2)}</span>
+    `;
+    cartItems.appendChild(cartItem);
+    
+    // Update the total
+    updateCartTotal(itemPrice);
+}
+
+function updateCartTotal(itemPrice) {
+    const cartTotal = document.getElementById('cartTotal');
+    let total = parseFloat(cartTotal.textContent.replace('Total: $', ''));
+    total += itemPrice;
+    cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+}
+
+function checkout() {
+    alert('Proceeding to checkout...');
+    // You can implement the checkout logic here
+}
+
+
+
+// Fetch menu items from the server
+async function fetchMenuItems() {
+    try {
+        const response = await fetch('menu_items.php'); // Ensure this URL is correct
+        if (!response.ok) throw new Error('Failed to fetch menu items');
+        const menuItems = await response.json();
+
+        // Clear existing content
+        const menuContainer = document.getElementById('menu-container');
+        menuContainer.innerHTML = '';
+
+        // Loop through items and render cards
+        menuItems.forEach(item => {
+            const stockClass = item.stock_quantity > 0 ? "" : "out-of-stock";
+            const card = document.createElement('div');
+            card.className = `w-[320px] h-[150px] bg-[#E3F9E5] rounded-[12px] shadow-md flex justify-start items-center border-solid border-2 border-[#62CD92] md:w-[420px] md:h-[210px] ${stockClass}`;
+            card.innerHTML = `
+                <div class="w-[160px] h-full flex items-center justify-center">
+                    <img class="w-[90px] h-auto md:w-[140px]" src="${item.image}" alt="${item.name}">
+                </div>
+                <div class="w-[200px] h-[120px] flex flex-col gap-2 pl-2 md:w-fit md:h-[180px]">
+                    <p class="font-bold text-[#004D40] text-[20px] md:text-[35px]" style="font-family: 'Baloo 2';">${item.name}</p>
+                    <p class="font-bold text-[#004D40] text-[20px] md:text-[35px]" style="font-family: 'Baloo 2';">₱${item.price}</p>
+                    ${
+                        item.stock_quantity > 0
+                            ? `<div class="flex gap-2">
+                                <div class="cursor-pointer hover:bg-[#2a665c] transition h-[35px] w-[110px] bg-[#004D40] flex items-center justify-center rounded-[100px] md:h-[50px] md:w-[180px]">
+                                    <button class="font-bold text-[#E3F9E5] text-[16px] md:text-[24px]" style="font-family: 'Baloo 2';">Customize</button>
+                                </div>
+                                <div class=" hover:bg-[#2a665c] transition w-[35px] h-[35px] rounded-[360px] bg-[#004D40] flex items-center justify-center md:h-[50px] md:w-[50px]">
+                                    <a class="cursor-pointer fa-solid fa-cart-plus text-[16px] text-[#E3F9E5] md:text-[24px]"></a>
+                                </div>
+                              </div>`
+                            : `<p class="text-red-600 font-bold">Out of Stock</p>`
+                    }
+                </div>
+            `;
+            menuContainer.appendChild(card);
+        });
+    } catch (error) {
+        console.error(error);
+        alert('Error loading menu items.');
+    }
+}
+
+// Call the function on page load
+fetchMenuItems();
+
+    </script>
+</body>
+</html>

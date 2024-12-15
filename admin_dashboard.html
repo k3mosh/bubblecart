@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Baloo 2', sans-serif;
+            
+        }
+
+        div::-webkit-scrollbar {
+            display: none; /* For Chrome, Safari, and Edge */
+        }
+            
+       
+
+    </style>
+    <title>Admin Dashboard-Tailwind</title>
+</head>
+<body  style="background: linear-gradient(to right, #e0f7ec, #A8E6CF); " class="w-full h-screen">
+
+
+
+
+
+    <!-- Body  -->
+<div class="w-screen h-screen flex flex-col justify-start items-center" >
+       <!-- ===== left nav ===== -->
+        <div class="w-full h-[70px] bg-[#2B8A6D] flex flex-col justify-center items-start md:hidden">
+            <div>
+                <img class="w-auto h-[45px] ml-[45px]" src="../asset/logo.png" alt="">
+            </div>
+            <div>
+
+            </div>
+        </div>
+      <div class="w-full h-full md:flex md:flex-row overflow-x-hidden">  
+       <div class="w-[390px] h-full bg-[#2B8A6D] px-9 pt-3  hidden sm:block">
+        <div class="h-full w-full flex flex-col justify-start items-center">
+            <div class="pb-[60px]">
+                <img class="w-auto h-[80px]" src="../asset/logo.png" alt="">
+            </div>
+            <div class="w-full"> <a class="w-auto h-[60px] mt-8 bg-[#A8E6CF] flex justify-center items-center rounded-[20px] shadow-2xl cursor-pointer" href="">
+                <span class="font-bold text-[30px] text-[#2B8A6D]">Dashboard</span> </a>
+            </div>
+            <div class="w-full">
+                <a 
+                    class="group w-full h-[60px] mt-8 bg-transparent border-solid border-2 border-[#A8E6CF] flex justify-center items-center rounded-[20px] shadow-2xl cursor-pointer hover:bg-[#A8E6CF] transition duration-300 ease-in-out" 
+                    href="admin_customers.html">
+                    <span class="font-bold text-[30px] text-[#A8E6CF] group-hover:text-[#2B8A6D] transition duration-300 ease-in-out">Customers</span>
+                </a>
+            </div>
+            <div class="w-full">
+                <a 
+                    class="group w-full h-[60px] mt-8 bg-transparent border-solid border-2 border-[#A8E6CF] flex justify-center items-center rounded-[20px] shadow-2xl cursor-pointer hover:bg-[#A8E6CF] transition duration-300 ease-in-out" 
+                    href="#">
+                    <span class="font-bold text-[30px] text-[#A8E6CF] group-hover:text-[#2B8A6D] transition duration-300 ease-in-out">Edit Menu</span>
+                </a>
+            </div>
+            <div class="w-full">
+                <a 
+                    class="group w-full h-[60px] mt-8 bg-transparent border-solid border-2 border-[#A8E6CF] flex justify-center items-center rounded-[20px] shadow-2xl cursor-pointer hover:bg-[#A8E6CF] transition duration-300 ease-in-out" 
+                    href="#">
+                    <span class="font-bold text-[30px] text-[#A8E6CF] group-hover:text-[#2B8A6D] transition duration-300 ease-in-out">Inventory</span>
+                </a>
+            </div>
+            <div class="w-full">
+                <button 
+                class="w-full h-[60px] mt-36 bg-red-500 text-white font-bold text-[30px] flex justify-center items-center rounded-[20px] shadow-2xl cursor-pointer hover:bg-red-600 transition duration-300 ease-in-out"
+                onclick="openLogoutModal()">
+                Logout
+            </button>
+
+            </div>
+        </div>
+            
+       </div>
+        <div class="w-full h-full px-12 bg-green-200 flex justify-center overflow-x-hidden">
+            <div class=" w-full h-full   flex flex-col justify-start items-center overflow-x-hidden overflow-y-auto">
+                <div class="h-full w-full  flex flex-col md:flex md:f justify-start items-center">
+                    <div class="w-full h-fit pt-[20px]"><p class="font-bold text-[32px] text-[#2B8A6D] md:hidden">Dashboard</p></div>
+
+                    <div class="w-full h-[480px] md:h-[320px] py-4 gap-y-4 md:gap-x-11 flex flex-col justify-start items-center md:flex md:flex-row md:items-center md:justify-center">
+
+                        <div class="w-full h-1/4 md:h-[300px] md:w-[300px] bg-[#2B8A6D] flex flex-row justify-center items-start rounded-[20px] md:flex md:flex-col md:justify-center md:items-center">
+                            <div class="w-[140px] h-fit flex flex-col justify-start items-center pt-2 gap-3 md:w-full"><p class="font-bold text-[22px] text-[#D3F2E7] md:text-[48px]">Total Sales</p><i class="fa-solid fa-chart-simple font-bold text-[26px] text-[#D3F2E7] md:text-[48px]"></i>
+                            </div>
+                            <div class="w-[175px] h-full flex justify-center items-center md:w-full"><p class="font-bold text-[40px] text-[#D3F2E7] md:text-[48px]"> ₱1234567</p></div>
+                        </div>
+
+                        <div class="w-full h-1/4 md:h-[300px] md:w-[300px] bg-[#2B8A6D] flex flex-row justify-center items-start rounded-[20px] md:flex md:flex-col md:justify-center md:items-center">
+                            <div class="w-[140px] h-fit flex flex-col justify-start items-center pt-2 gap-3 md:w-full"><p class="font-bold text-[22px] text-[#D3F2E7] md:text-[48px]">Total Orders</p><i class="fa-solid fa-cart-shopping font-bold text-[26px] text-[#D3F2E7] md:text-[48px]"></i>
+                            </div>
+                            <div class="w-[175px] h-full flex justify-center items-center md:w-full"><p class="font-bold text-[40px] text-[#D3F2E7] md:text-[48px]">1234567</p></div>
+                        </div>
+
+                        <div class="w-full h-1/4 md:h-[300px] md:w-[300px] bg-[#2B8A6D] flex flex-row justify-center items-start rounded-[20px] md:flex md:flex-col md:justify-center md:items-center">
+                            <div class="w-[140px] h-fit flex flex-col justify-start items-center pt-2 gap-3 md:w-full"><p class="font-bold text-[22px] text-[#D3F2E7] md:text-[48px]">Customers</p><i class="fa-solid fa-user font-bold text-[26px] text-[#D3F2E7] md:text-[48px]"></i>
+                            </div>
+                            <div class="w-[175px] h-full flex justify-center items-center md:w-full"><p class="font-bold text-[40px] text-[#D3F2E7] md:text-[48px]">1234567</p></div>
+                        </div>
+
+                        <div class="w-full h-1/4 md:h-[300px] md:w-[300px] bg-[#2B8A6D] flex flex-row justify-center items-start rounded-[20px] md:flex md:flex-col md:justify-center md:items-center">
+                            <div class="w-[140px] h-fit flex flex-col justify-start items-center pt-2 gap-3 md:w-full "><p class="font-bold text-[22px] text-[#D3F2E7] md:text-[48px]">Inventory</p><i class="fa-solid fa-box font-bold text-[26px] text-[#D3F2E7] md:text-[48px]"></i>
+                            </div>
+                            <div class="w-[175px] h-full flex justify-center items-center md:w-full "><p class="font-bold text-[40px] text-[#D3F2E7] md:text-[48px]">1234567</p></div>
+                        </div>
+                    </div>
+
+                     <!-- Container for the chart -->
+                    <div class="bg-[#2B8A6D] p-6 rounded-lg shadow-lg max-w-3xl w-full md:mt-9 md:h-[520px] md:w-[820px]">
+                        <h2 class="text-2xl font-bold text-center text-[#D3F2E7] mb-4 md:text-[40px]">Sales Data Chart</h2>
+                        <canvas id="myChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <div>
+
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</div>
+            <div id="logoutModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+                <div class="bg-[#2B8A6D] h-[200px] w-[90%] max-w-md p-6 rounded-lg shadow-lg">
+                    <h2 class="text-[30px] font-baloo2 font-bold text-[#1b5349] ">Are you sure you want to logout?</h2>
+        
+                    <div class="flex justify-end space-x-4">
+                        <button 
+                            class="font-baloo2 font-bold px-4 py-2 bg-[#A8E6CF] text-gray-700 rounded-lg hover:bg-gray-400 transition duration-300 ease-in-out"
+                            onclick="closeLogoutModal()">Cancel</button>
+                        <button 
+                            class="font-baloo2 font-bold px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300 ease-in-out"
+                            onclick="confirmLogout()">Confirm</button>
+                    </div>
+                </div>
+            </div>
+
+    
+
+    <script src="https://cdn.tailwindcss.com"> </script>
+    <script> // Prepare chart data
+         // Prepare chart data
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line', // Type of chart (line chart)
+    data: {
+        labels: ['January', 'February', 'March', 'April', 'May'], // X-axis labels
+        datasets: [{
+            label: 'Sales (₱)',
+            data: [120, 150, 180, 130, 170], // Y-axis data (sales values)
+            fill: false, // Disable the fill under the line
+            borderColor: 'rgba(255, 255, 255, 1)', // Line color (white)
+            tension: 0.1, // Smoothness of the line curve
+            borderWidth: 2 // Line width
+        }]
+    },
+    options: {
+        responsive: true, // Makes the chart responsive to screen size
+        scales: {
+            y: {
+                beginAtZero: true, // Start Y-axis at 0
+                ticks: {
+                    stepSize: 20, // Set the interval for Y-axis ticks
+                    color: 'white' // Set tick color to white
+                }
+            },
+            x: {
+                ticks: {
+                    color: 'white' // Set X-axis tick color to white
+                }
+            }
+        },
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'white' // Set legend text color to white
+                }
+            }
+        }
+    }
+});
+// Function to open the logout modal
+function openLogoutModal() {
+    document.getElementById('logoutModal').classList.remove('hidden');
+}
+
+// Function to close the logout modal
+function closeLogoutModal() {
+    document.getElementById('logoutModal').classList.add('hidden');
+}
+
+// Function to handle logout confirmation (you can customize this as needed)
+function confirmLogout() {
+    // Perform logout actions here, e.g., redirect to a logout page
+    window.location.href = 'index.html';
+    alert('Logged out successfully!');
+    closeLogoutModal();
+}
+
+        </script>
+ 
+       
+</body>
+</html>

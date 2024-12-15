@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Baloo 2', sans-serif;
+            overflow: hidden;
+        }
+        p{
+            overflow-y: hidden;
+        }
+        div::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Edge */
+}
+       
+  #burger.open .bar:nth-child(1) {
+    transform: rotate(45deg) translateY(13.5px);
+  }
+  
+  #burger.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  #burger.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translateY(-13.5px);
+  }
+
+    </style>
+    <title>Customer Login-Tailwind</title>
+</head>
+<body style="background: linear-gradient(to right, #e0f7ec, #A8E6CF); ">
+    <header class="w-full h-[70px] bg-[#2B8A6D] shadow-md flex items-center z-50 justify-between md:pr-6 px-6 md:px-0 md:pl-40 md:justify-none fixed top-0">
+        <div class="flex items-center">   
+            <div class="h-[45px] w-auto mr-10">
+                <img src="../asset/logo.png" alt="logo" class="w-auto h-[45px] ">
+            </div>
+            <div class="w-fit h-fit hidden sm:block flex ">
+                <a class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out" href="index.html">Home</a>
+                <a class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out mx-6" href="shop.html" >Craft Now</a>
+                <a class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out" href="about.html">About Us</a>
+            </div>
+        </div>
+        <div class="flex items-center hidden sm:block">
+            <a class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out" href="user_login.html">Log In</a>
+            <a class="font-bold text-[18px] text-[#004D40] mx-6 hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out" href="">Sign Up</a>
+            <a class="font-bold text-[18px] text-[#004D40] hidden" href="">Account</a>
+            <a class="fa-solid fa-user text-[#0E2E24] text-[20px] text-center cursor-pointer" href="admin.html"></a>
+        </div>
+        <div id="burger" onclick="menu()" class="flex flex-col justify-between w-8 h-6 cursor-pointer md:hidden">
+            <span class="bar bg-[#004D40] h-1 w-full origin-center transition-transform duration-300 ease-in-out"></span>
+            <span class="bar bg-[#004D40] h-1 w-full origin-center transition-transform duration-300 ease-in-out"></span>
+            <span class="bar bg-[#004D40] h-1 w-full origin-center transition-transform duration-300 ease-in-out"></span>
+        </div>
+    </header>
+
+    <!-- Body  -->
+    <div class="w-screen h-screen flex justify-center" >
+      <div class="flex justify-center items-center ">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-96 h-fit md:w-[600px]">
+          <!-- Title -->
+          <h2 class="text-[38px] font-bold text-[#004d40] text-center mb-6">Customer Sign Up</h2>
+          <!-- Form -->
+
+            <form>
+                <!-- First Form -->
+                <div id="first-form" class="mb-6">
+                  <!-- Name -->
+                  <div class="mb-6 flex flex-row space-x-4">
+                    <div class="flex-1">
+                      <label for="fname" class="block font-bold text-[#004d40] mb-2">First Name:</label>
+                      <input id="fname" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#2B8A6D]" type="text" placeholder="First Name" />
+                    </div>
+                    <div class="flex-1">
+                      <label for="lname" class="block font-bold text-[#004d40] mb-2">Last Name:</label>
+                      <input id="lname" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#2B8A6D]" type="text" placeholder="Last Name" />
+                    </div>
+                  </div>
+              
+                  <!-- Email -->
+                  <div class="mb-6">
+                    <label for="email" class="block font-bold text-[#004d40] mb-2">Email:</label>
+                    <input type="email" id="email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#2B8A6D]" placeholder="Enter your email" />
+                  </div>
+              
+                  <!-- Phone -->
+                  <div class="mb-6">
+                    <label for="phone" class="block font-bold text-[#004d40] mb-2">Phone:</label>
+                    <input type="phone" id="phone" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#2B8A6D]" placeholder="Enter your phone" />
+                  </div>
+              
+                  <!-- Barangay and Street -->
+                  <div class="mb-6 flex flex-row space-x-4">
+                    <div class="flex-1">
+                      <label for="barangay" class="block font-bold text-[#004d40] mb-2">Barangay:</label>
+                      <select id="barangay" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#2B8A6D]">
+                        <option value="">Select a Barangay</option>
+                        <option value="barangay1">Barangay 1</option>
+                        <option value="barangay2">Barangay 2</option>
+                        <!-- Add more Barangay options as needed -->
+                      </select>
+                    </div>
+                    <div class="flex-1">
+                      <label for="street" class="block font-bold text-[#004d40] mb-2">Street:</label>
+                      <select id="street" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#2B8A6D]">
+                        <option value="">Select a Street</option>
+                        <!-- Street options will be dynamically populated based on the selected Barangay -->
+                      </select>
+                    </div>
+                  </div>
+              
+                  <!-- Next Button -->
+                  <button id="next-btn" type="button" class="w-full bg-[#004d40] text-white py-2 rounded-md hover:bg-[#2a665c] transition">Next</button>
+                </div>
+              
+              <!-- Second Form -->
+                <div id="second-form" class="mb-6 hidden">
+                    <div class="flex items-center mb-6">
+                    <!-- Back Button -->
+                    <button id="back-btn" type="button" class="mr-4 text-[#004d40] hover:text-[#2a665c] transition ">
+                        <i class="fas fa-arrow-left text-[30px]"></i>
+                    </button>
+                    
+                    </div>
+                
+                    <!-- Username -->
+                    <div class="mb-6">
+                    <label for="username" class="block font-bold text-[#004d40] mb-2">Username:</label>
+                    <input type="text" id="username" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#2B8A6D]" placeholder="Enter your username" />
+                    </div>
+                
+                    <!-- Password -->
+                    <div class="mb-6">
+                    <label for="password" class="block font-bold text-[#004d40] mb-2">Password:</label>
+                    <input type="password" id="password" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#2B8A6D]" placeholder="Enter your password" />
+                    </div>
+                
+                    <!-- Confirm Password -->
+                    <div class="mb-6">
+                    <label for="confirm-password" class="block font-bold text-[#004d40] mb-2">Confirm Password:</label>
+                    <input type="password" id="confirm-password" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#2B8A6D]" placeholder="Confirm your password" />
+                    </div>
+                
+                    <div class="flex justify-between">
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full bg-[#004d40] text-white py-2 rounded-md hover:bg-[#2a665c] transition">Submit</button>
+                    </div>
+                </div>
+              </form>
+      
+          <!-- Footer -->
+          <p class="text-center text-sm text-gray-600 mt-4 font-baloo2">
+           Already have an account? <a href="user_login.html" class="text-[#004d40] font-medium hover:underline">Login</a>
+          </p>
+        </div>
+      </div>
+    <!--Menu Modal -->
+    <div id="menu" class="md:hidden fixed top-0 mt-[70px] left-0 w-full h-full z-50 flex justify-end opacity-0 translate-x-full transition-all ease-in-out duration-300">
+        <div id="content" class="w-[240px] relative h-full bg-[#5CA891]  py-[20px] flex flex-col items-center">
+            <div class="flex justify-end items-center w-full h-fit pr-6"> 
+                <a class="fa-solid fa-user text-[#0E2E24] text-[20px] text-center cursor-pointer" href="admin.html"></a>
+            </div>
+            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                <a href="index.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">Home</a>
+            </div>
+            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                <a href="shop.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">Craft Now</a>
+            </div>
+            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                <a href="about.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">About Us</a>
+            </div>
+            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                <a href="user_login.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">Log In</a>
+            </div>
+            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                <a href="" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">Sign Up</a>
+            </div>
+            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                <a href="account.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out hidden">Account</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        const firstForm = document.getElementById('first-form');
+const secondForm = document.getElementById('second-form');
+const nextBtn = document.getElementById('next-btn');
+const backBtn = document.getElementById('back-btn');
+
+nextBtn.addEventListener('click', () => {
+  firstForm.classList.add('hidden');
+  secondForm.classList.remove('hidden');
+});
+
+backBtn.addEventListener('click', () => {
+  firstForm.classList.remove('hidden');
+  secondForm.classList.add('hidden');
+  firstForm;
+});
+            // JavaScript code
+        const barangayOptions = {
+        barangay1: ['Street 1', 'Street 2', 'Street 3'],
+        barangay2: ['Street A', 'Street B', 'Street C'],
+        // Add more Barangay-Street mappings as needed
+        };
+
+const barangayDropdowns = document.querySelectorAll('#barangay');
+const streetDropdowns = document.querySelectorAll('#street');
+
+barangayDropdowns.forEach((barangayDropdown, index) => {
+  barangayDropdown.addEventListener('change', () => {
+    const selectedBarangay = barangayDropdown.value;
+    const streetOptions = barangayOptions[selectedBarangay] || [];
+
+    const streetDropdown = streetDropdowns[index];
+    streetDropdown.innerHTML = '<option value="">Select a Street</option>';
+    streetOptions.forEach((street) => {
+      const option = document.createElement('option');
+      option.value = street;
+      option.textContent = street;
+      streetDropdown.appendChild(option);
+    });
+  });
+});
+
+        function menu() {
+    const burger = document.getElementById("burger");
+    const menu = document.getElementById("menu");
+
+    // Toggle the menu visibility
+    menu.classList.toggle("opacity-0");
+    menu.classList.toggle("opacity-100");
+    menu.classList.toggle("translate-x-full");
+    menu.classList.toggle("translate-x-0");
+
+    // Animate the burger to X
+    burger.classList.toggle("open");
+}
+    
+    </script>
+</body>
+</html>

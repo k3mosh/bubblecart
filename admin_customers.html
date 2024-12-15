@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Baloo 2', sans-serif;
+
+        }
+
+       /* Horizontal Scrollbar for #x */
+#x::-webkit-scrollbar {
+    height: 8px; /* Horizontal scrollbar height */
+}
+
+#x::-webkit-scrollbar-track {
+    background-color: #A8E6CF; /* A light color for the track */
+    border-radius: 10px;
+}
+
+#x::-webkit-scrollbar-thumb {
+    background-color: #004d40; /* Dark color for the thumb */
+    border-radius: 10px;
+}
+
+#x::-webkit-scrollbar-thumb:hover {
+    background-color: #2B8A6D; /* Change to a lighter shade on hover */
+}
+
+/* Vertical Scrollbar for #y */
+#y::-webkit-scrollbar {
+    width: 8px; /* Vertical scrollbar width */
+}
+
+#y::-webkit-scrollbar-track {
+    background-color: #A8E6CF; /* A light color for the track */
+    border-radius: 10px;
+}
+
+#y::-webkit-scrollbar-thumb {
+    background-color: #004d40; /* Dark color for the thumb */
+    border-radius: 10px;
+}
+
+#y::-webkit-scrollbar-thumb:hover {
+    background-color: #2B8A6D; /* Change to a lighter shade on hover */
+}
+
+/* Hide vertical scrollbar for #x */
+#x::-webkit-scrollbar:vertical {
+    display: none;
+}
+
+
+    </style>
+    <title>Admin Customers-Tailwind</title>
+</head>
+
+<body style="background: linear-gradient(to right, #e0f7ec, #A8E6CF); " class="w-full h-screen">
+
+
+
+
+
+    <!-- Body  -->
+    <div class="w-screen h-screen flex flex-col justify-start items-center">
+        <!-- ===== left nav ===== -->
+        <div class="w-full h-[70px] bg-[#2B8A6D] flex flex-col justify-center items-start md:hidden">
+            <div>
+                <img class="w-auto h-[45px] ml-[45px]" src="../asset/logo.png" alt="">
+            </div>
+            <div>
+
+            </div>
+        </div>
+        <div class="w-full h-full md:flex md:flex-row overflow-x-hidden">
+            <div class="w-[390px] h-full bg-[#2B8A6D] px-9 pt-3  hidden sm:block">
+                <div class="h-full w-full flex flex-col justify-start items-center">
+                    <div class="pb-[60px]">
+                        <img class="w-auto h-[80px]" src="../asset/logo.png" alt="">
+                    </div>
+        
+                    <div class="w-full">
+                        <a class="group w-full h-[60px] mt-8 bg-transparent border-solid border-2 border-[#A8E6CF] flex justify-center items-center rounded-[20px] shadow-2xl cursor-pointer hover:bg-[#A8E6CF] transition duration-300 ease-in-out"
+                            href="admin_dashboard.html">
+                            <span
+                                class="font-bold text-[30px] text-[#A8E6CF] group-hover:text-[#2B8A6D] transition duration-300 ease-in-out">Dashboard</span>
+                        </a>
+                    </div>
+                    <div class="w-full">
+                        <a class="w-auto h-[60px] mt-8 bg-[#A8E6CF] flex justify-center items-center rounded-[20px] shadow-2xl cursor-pointer"
+                            href="">
+                            <span class="font-bold text-[30px] text-[#2B8A6D]">Customers</span>
+                        </a>
+                    </div>
+                    <div class="w-full">
+                        <a class="group w-full h-[60px] mt-8 bg-transparent border-solid border-2 border-[#A8E6CF] flex justify-center items-center rounded-[20px] shadow-2xl cursor-pointer hover:bg-[#A8E6CF] transition duration-300 ease-in-out"
+                            href="#">
+                            <span
+                                class="font-bold text-[30px] text-[#A8E6CF] group-hover:text-[#004d40] transition duration-300 ease-in-out">Edit
+                                Menu</span>
+                        </a>
+                    </div>
+                    <div class="w-full">
+                        <a class="group w-full h-[60px] mt-8 bg-transparent border-solid border-2 border-[#A8E6CF] flex justify-center items-center rounded-[20px] shadow-2xl cursor-pointer hover:bg-[#A8E6CF] transition duration-300 ease-in-out"
+                            href="#">
+                            <span
+                                class="font-bold text-[30px] text-[#A8E6CF] group-hover:text-[#004d40] transition duration-300 ease-in-out">Inventory</span>
+                        </a>
+                    </div>
+                    <div class="w-full">
+                        <button
+                            class="w-full h-[60px] mt-36 bg-red-500 text-white font-bold text-[30px] flex justify-center items-center rounded-[20px] shadow-2xl cursor-pointer hover:bg-red-600 transition duration-300 ease-in-out"
+                            onclick="openLogoutModal()">
+                            Logout
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="w-full h-full px-12 bg-green-200 flex justify-center ">
+                <div
+                    class=" w-full h-full   flex flex-col justify-start items-center  overflow-y-auto">
+                    <div class="h-full w-full  flex flex-col md:flex md:f justify-start items-center">
+                        <div class="w-full h-fit pt-[20px]">
+                            <p class="font-bold text-[32px] text-[#2B8A6D] md:hidden">Customers</p>
+                        </div>
+
+                        <div class="w-full h-full flex flex-col items-center justify-start md:flex md:flex-row md:justify-center md:items-start">
+         
+                            <div class="w-full h-[320px] ">
+                                <div class="w-full h-[40px] flex flex-row justify-center items-center gap-3 px-4">
+                                    <div class="flex justify-center items-center h-fit w-3/5  ">
+                                        <div class="relative w-full ">
+                                            <input
+                                            type="text"
+                                            placeholder="Search..."
+                                            class="w-full px-4 h-9 pr-10 border border-gray-300 rounded-[20px]  focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                          />
+                                         <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                                          <i
+                                            class="fa-solid fa-magnifying-glass  text-[#9FA7A5]"
+                                          ></i>
+                                          </div>
+                                        </div>
+                                    </div>
+    
+                                    <div class="flex justify-center items-center h-full w-2/5">
+                                        <div class="relative w-full">
+                                            <!-- Dropdown -->
+                                            <select id="filter" class="block appearance-none w-full text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-[20px] px-5 pr-8 h-9 text-[#9FA7A5]">
+                                                <option  value="" disabled selected>Select</option>
+                                                <option value="option1">Option 1</option>
+                                                <option value="option2">Option 2</option>
+                                                <option value="option3">Option 3</option>
+                                            </select>
+                                    
+                                            <!-- Dropdown Icon -->
+                                            <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                                                <i class="fa-solid fa-chevron-down text-[#9FA7A5]"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+
+                                      
+                                </div>
+                                <div class="bg-[#2B8A6D] p-6 rounded-lg shadow-lg max-w-3xl w-full h-[270px] mt-3">
+                                    <div id="x" class="w-full h-full overflow-x-auto">
+                                        <!-- Header Row with Fixed Widths and Centered Text -->
+                                        <div class="sticky top-0 flex flex-row gap-3 text-[#A8E6CF] font-baloo2 font-bold whitespace-nowrap w-max px-2 bg-[#2B8A6D] z-10">
+                                            <p class="w-[60px] text-center">Id</p>
+                                            <p class="w-[120px] text-center">Username</p>
+                                            <p class="w-[150px] text-center">Name</p>
+                                            <p class="w-[200px] text-center">Address</p>
+                                            <p class="w-[150px] text-center">Phone</p>
+                                            <p class="w-[235px] pl-8">Date Account Created</p>
+                                        </div>
+                                        <!-- Data Rows -->
+                                         <!-- Data Rows Container with Vertical Scroll -->
+                                    <div id="y" class="w-max h-fit overflow-y-auto">
+                                        <!-- Data Row -->
+                                        <div class="w-max h-9 bg-[#A8E6CF] rounded-[20px] px-3 flex justify-center items-center mb-3">
+                                            <div class="flex flex-row gap-3 text-[#004d40] font-baloo2 font-bold px-2">
+                                                <p class="w-[60px] text-center">1</p>
+                                                <p class="w-[120px] text-center">kemosh</p>
+                                                <p class="w-[150px] text-center">Allen Mateo</p>
+                                                <p class="w-[200px] text-center">Barangay 1, Daet</p>
+                                                <p class="w-[150px] text-center">09212882391</p>
+                                                <p class="w-[180px] text-center">00-00-0000</p>
+                                                <i class="fa-solid fa-trash flex items-center justify-center cursor-pointer"></i>
+                                            </div>
+                                        </div>
+                                        <!-- Repeat similar data rows here -->
+                                        <div class="w-max h-9 bg-[#A8E6CF] rounded-[20px] px-3 flex justify-center items-center mb-3">
+                                            <div class="flex flex-row gap-3 text-[#004d40] font-baloo2 font-bold px-2">
+                                                <p class="w-[60px] text-center">2</p>
+                                                <p class="w-[120px] text-center">kemosh</p>
+                                                <p class="w-[150px] text-center">Allen Mateo</p>
+                                                <p class="w-[200px] text-center">Barangay 1, Daet</p>
+                                                <p class="w-[150px] text-center">09212882391</p>
+                                                <p class="w-[180px] text-center">00-00-0000</p>
+                                                <i class="fa-solid fa-trash flex items-center justify-center cursor-pointer"></i>
+                                            </div>
+                                        </div>
+                                        <div class="w-max h-9 bg-[#A8E6CF] rounded-[20px] px-3 flex justify-center items-center mb-3">
+                                            <div class="flex flex-row gap-3 text-[#004d40] font-baloo2 font-bold px-2">
+                                                <p class="w-[60px] text-center">2</p>
+                                                <p class="w-[120px] text-center">kemosh</p>
+                                                <p class="w-[150px] text-center">Allen Mateo</p>
+                                                <p class="w-[200px] text-center">Barangay 1, Daet</p>
+                                                <p class="w-[150px] text-center">09212882391</p>
+                                                <p class="w-[180px] text-center">00-00-0000</p>
+                                                <i class="fa-solid fa-trash flex items-center justify-center cursor-pointer"></i>
+                                            </div>
+                                        </div>
+                                        <div class="w-max h-9 bg-[#A8E6CF] rounded-[20px] px-3 flex justify-center items-center mb-3">
+                                            <div class="flex flex-row gap-3 text-[#004d40] font-baloo2 font-bold px-2">
+                                                <p class="w-[60px] text-center">2</p>
+                                                <p class="w-[120px] text-center">kemosh</p>
+                                                <p class="w-[150px] text-center">Allen Mateo</p>
+                                                <p class="w-[200px] text-center">Barangay 1, Daet</p>
+                                                <p class="w-[150px] text-center">09212882391</p>
+                                                <p class="w-[180px] text-center">00-00-0000</p>
+                                                <i class="fa-solid fa-trash flex items-center justify-center cursor-pointer"></i>
+                                            </div>
+                                        </div>
+                                        <div class="w-max h-9 bg-[#A8E6CF] rounded-[20px] px-3 flex justify-center items-center mb-3">
+                                            <div class="flex flex-row gap-3 text-[#004d40] font-baloo2 font-bold px-2">
+                                                <p class="w-[60px] text-center">2</p>
+                                                <p class="w-[120px] text-center">kemosh</p>
+                                                <p class="w-[150px] text-center">Allen Mateo</p>
+                                                <p class="w-[200px] text-center">Barangay 1, Daet</p>
+                                                <p class="w-[150px] text-center">09212882391</p>
+                                                <p class="w-[180px] text-center">00-00-0000</p>
+                                                <i class="fa-solid fa-trash flex items-center justify-center cursor-pointer"></i>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Add more data rows as needed -->
+                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="w-full h-[320px] mt-2">
+                                <div class="w-full h-[40px] flex flex-row justify-center items-center space-x-3">
+
+                                    <div class="w-1/2 h-full flex items-center justify-center">
+                                        <p class="text-[#004d40] text-[22px] font-baloo2 font-bold">Latest Orders</p>
+                                    </div>
+
+                                    <div class="flex justify-center items-center h-full w-1/2">
+                                        <div class="relative w-full">
+                                            <!-- Dropdown -->
+                                            <select id="filter" class="block appearance-none w-full text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-[20px] px-5  text-[#9FA7A5]">
+                                                <option  value="" disabled selected>Select</option>
+                                                <option value="option1">Option 1</option>
+                                                <option value="option2">Option 2</option>
+                                                <option value="option3">Option 3</option>
+                                            </select>
+                                    
+                                            <!-- Dropdown Icon -->
+                                            <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                                                <i class="fa-solid fa-chevron-down text-[#9FA7A5]"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-[#2B8A6D] p-6 rounded-lg shadow-lg max-w-3xl w-full h-[270px] mt-3">
+                                    <div id="x" class="w-full h-full overflow-x-auto">
+                                        <!-- Header Row with Fixed Widths and Centered Text -->
+                                        <div class="sticky top-0 flex flex-row gap-3 text-[#A8E6CF] font-baloo2 font-bold whitespace-nowrap w-max px-2 bg-[#2B8A6D] z-10">
+                                            <p class="w-[60px] text-center">Id</p>
+                                            <p class="w-[120px] text-center">Username</p>
+                                            <p class="w-[150px] text-center">Name</p>
+                                            <p class="w-[200px] text-center">Address</p>
+                                            <p class="w-[150px] text-center">Phone</p>
+                                            <p class="w-[235px] pl-8">Date Account Created</p>
+                                        </div>
+                                        <!-- Data Rows -->
+                                         <!-- Data Rows Container with Vertical Scroll -->
+                                    <div id="y" class="w-max h-fit overflow-y-auto">
+                                        <!-- Data Row -->
+                                        <div class="w-max h-9 bg-[#A8E6CF] rounded-[20px] px-3 flex justify-center items-center mb-3">
+                                            <div class="flex flex-row gap-3 text-[#004d40] font-baloo2 font-bold px-2">
+                                                <p class="w-[60px] text-center">1</p>
+                                                <p class="w-[120px] text-center">kemosh</p>
+                                                <p class="w-[150px] text-center">Allen Mateo</p>
+                                                <p class="w-[200px] text-center">Barangay 1, Daet</p>
+                                                <p class="w-[150px] text-center">09212882391</p>
+                                                <p class="w-[180px] text-center">00-00-0000</p>
+                                                <i class="fa-solid fa-trash flex items-center justify-center cursor-pointer"></i>
+                                            </div>
+                                        </div>
+                                        <!-- Repeat similar data rows here -->
+                                        <div class="w-max h-9 bg-[#A8E6CF] rounded-[20px] px-3 flex justify-center items-center mb-3">
+                                            <div class="flex flex-row gap-3 text-[#004d40] font-baloo2 font-bold px-2">
+                                                <p class="w-[60px] text-center">2</p>
+                                                <p class="w-[120px] text-center">kemosh</p>
+                                                <p class="w-[150px] text-center">Allen Mateo</p>
+                                                <p class="w-[200px] text-center">Barangay 1, Daet</p>
+                                                <p class="w-[150px] text-center">09212882391</p>
+                                                <p class="w-[180px] text-center">00-00-0000</p>
+                                                <i class="fa-solid fa-trash flex items-center justify-center cursor-pointer"></i>
+                                            </div>
+                                        </div>
+                                        <div class="w-max h-9 bg-[#A8E6CF] rounded-[20px] px-3 flex justify-center items-center mb-3">
+                                            <div class="flex flex-row gap-3 text-[#004d40] font-baloo2 font-bold px-2">
+                                                <p class="w-[60px] text-center">2</p>
+                                                <p class="w-[120px] text-center">kemosh</p>
+                                                <p class="w-[150px] text-center">Allen Mateo</p>
+                                                <p class="w-[200px] text-center">Barangay 1, Daet</p>
+                                                <p class="w-[150px] text-center">09212882391</p>
+                                                <p class="w-[180px] text-center">00-00-0000</p>
+                                                <i class="fa-solid fa-trash flex items-center justify-center cursor-pointer"></i>
+                                            </div>
+                                        </div>
+                                        <div class="w-max h-9 bg-[#A8E6CF] rounded-[20px] px-3 flex justify-center items-center mb-3">
+                                            <div class="flex flex-row gap-3 text-[#004d40] font-baloo2 font-bold px-2">
+                                                <p class="w-[60px] text-center">2</p>
+                                                <p class="w-[120px] text-center">kemosh</p>
+                                                <p class="w-[150px] text-center">Allen Mateo</p>
+                                                <p class="w-[200px] text-center">Barangay 1, Daet</p>
+                                                <p class="w-[150px] text-center">09212882391</p>
+                                                <p class="w-[180px] text-center">00-00-0000</p>
+                                                <i class="fa-solid fa-trash flex items-center justify-center cursor-pointer"></i>
+                                            </div>
+                                        </div>
+                                        <div class="w-max h-9 bg-[#A8E6CF] rounded-[20px] px-3 flex justify-center items-center mb-3">
+                                            <div class="flex flex-row gap-3 text-[#004d40] font-baloo2 font-bold px-2">
+                                                <p class="w-[60px] text-center">2</p>
+                                                <p class="w-[120px] text-center">kemosh</p>
+                                                <p class="w-[150px] text-center">Allen Mateo</p>
+                                                <p class="w-[200px] text-center">Barangay 1, Daet</p>
+                                                <p class="w-[150px] text-center">09212882391</p>
+                                                <p class="w-[180px] text-center">00-00-0000</p>
+                                                <i class="fa-solid fa-trash flex items-center justify-center cursor-pointer"></i>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Add more data rows as needed -->
+                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+
+                       
+                    </div>
+
+                    <div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="logoutModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div class="bg-[#2B8A6D] h-[200px] w-[90%] max-w-md p-6 rounded-lg shadow-lg">
+            <h2 class="text-[30px] font-baloo2 font-bold text-[#1b5349] ">Are you sure you want to logout?</h2>
+
+            <div class="flex justify-end space-x-4">
+                <button
+                    class="font-baloo2 font-bold px-4 py-2 bg-[#A8E6CF] text-gray-700 rounded-lg hover:bg-gray-400 transition duration-300 ease-in-out"
+                    onclick="closeLogoutModal()">Cancel</button>
+                <button
+                    class="font-baloo2 font-bold px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300 ease-in-out"
+                    onclick="confirmLogout()">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.tailwindcss.com"> </script>
+    <script> 
+    
+   
+                                    function toggleDropdown() {
+                                      const dropdown = document.getElementById("dropdownMenu");
+                                      dropdown.classList.toggle("hidden");
+                                    }
+                                  
+                                    function filterOption(option) {
+                                      alert(`Selected: ${option}`);
+                                      toggleDropdown();
+                                    }
+                                 
+        // Function to open the logout modal
+        function openLogoutModal() {
+            document.getElementById('logoutModal').classList.remove('hidden');
+        }
+
+        // Function to close the logout modal
+        function closeLogoutModal() {
+            document.getElementById('logoutModal').classList.add('hidden');
+        }
+
+        // Function to handle logout confirmation (you can customize this as needed)
+        function confirmLogout() {
+            // Perform logout actions here, e.g., redirect to a logout page
+            window.location.href = 'index.html';
+            alert('Logged out successfully!');
+            closeLogoutModal();
+        }
+
+    </script>
+
+
+</body>
+
+</html>
