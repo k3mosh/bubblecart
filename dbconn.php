@@ -1,7 +1,7 @@
 <?php
 
 // Database connection
-$servername = "localhost";
+$servername = "srv1632.hstgr.io";
 $username = "u143688490_user";
 $password = "Kyuzumi112";
 $dbname = "u143688490_bubblecart";
