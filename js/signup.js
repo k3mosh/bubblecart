@@ -99,12 +99,6 @@ form.addEventListener('submit', async (e) => {
         displayError('An unexpected error occurred. Please try again later.');
     }
 });
-
-
-
-
-
-
 populateBarangays();
 });
 function menu() {
