@@ -100,11 +100,6 @@ form.addEventListener('submit', async (e) => {
     }
 });
 
-
-
-populateBarangays();
-});
-
 function menu() {
     const burger = document.getElementById("burger");
     const menu = document.getElementById("menu");
@@ -137,4 +132,8 @@ nextBtn.addEventListener('click', () => {
 backBtn.addEventListener('click', () => {
     secondForm.classList.add('hidden');
     firstForm.classList.remove('hidden');
+});
+
+
+populateBarangays();
 });
