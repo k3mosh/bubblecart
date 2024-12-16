@@ -187,35 +187,30 @@
     // Animate the burger to X
     burger.classList.toggle("open");
 }
-const loginLink = document.getElementById('login-link');
+document.addEventListener('DOMContentLoaded', () => {
+    const loginLink = document.getElementById('login-link');
     const signupLink = document.getElementById('signup-link');
     const accountTab = document.getElementById('account-tab');
     const adminIcon = document.getElementById('admin-icon');
-    const username = sessionStorage.getItem('username');
+    
+    // Check if the user is logged in (this is just an example, use actual authentication method)
+    const isLoggedIn = false;  // Replace with actual authentication check (e.g., check session or cookie)
 
-    // Update UI based on login status
-    function updateNavState() {
-        if (username) {
-            // If logged in, show Account and Admin Icon, hide Login and Signup
-            loginLink.style.display = 'none';
-            signupLink.style.display = 'none';
-            accountTab.style.display = 'block';
-            adminIcon.style.display = 'block';
-        } else {
-            // If not logged in, show Login and Signup, hide Account and Admin Icon
-            loginLink.style.display = 'block';
-            signupLink.style.display = 'block';
-            accountTab.style.display = 'none';
-            adminIcon.style.display = 'none';
-        }
+    if (isLoggedIn) {
+        // Show account and hide login/signup links
+        accountTab.style.display = 'block';
+        loginLink.style.display = 'none';
+        signupLink.style.display = 'none';
+        adminIcon.style.display = 'block'; // Show the admin icon for logged-in users
+    } else {
+        // Show login/signup links
+        loginLink.style.display = 'block';
+        signupLink.style.display = 'block';
+        accountTab.style.display = 'none';
+        adminIcon.style.display = 'none'; // Hide the admin icon for non-logged-in users
     }
-    updateNavState(); // Call the function to set the initial state
+});
 
-    // Optionally, add event listeners to login and logout to refresh UI dynamically
-    document.getElementById('logout-button')?.addEventListener('click', () => {
-        sessionStorage.removeItem('username');
-        updateNavState();
-    });
     </script>
 </body>
 </html>
