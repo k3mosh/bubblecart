@@ -1,10 +1,8 @@
-const errorMessage = document.getElementById('error-message');
-
 document.addEventListener('DOMContentLoaded', () => {
     const barangaySelect = document.getElementById('barangay');
     const streetSelect = document.getElementById('street');
     const form = document.getElementById('signup-form');
-
+    const errorMessage = document.getElementById('error-message');
 
     const barangayToStreets = {
         "Barangay 1": ["Mabini Street", "Rizal Street", "Del Pilar Street"],
