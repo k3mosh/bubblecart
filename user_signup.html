@@ -65,7 +65,7 @@
           <h2 class="text-[38px] font-bold text-[#004d40] text-center mb-6">Customer Sign Up</h2>
           <!-- Form -->
 
-            <form  id="signup-form" action="signup.php" method="POST">
+            <form  id="signup-form" action="signup.php" method="POST" onsubmit="validateForm(event)">
                 <!-- First Form -->
                 <div id="first-form" class="mb-6"  method="POST"  >
                   <!-- Name -->
@@ -186,6 +186,17 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+      function submitForm(event) {
+        event.preventDefault(); // Prevent form from submitting normally
+
+        // Show an alert after the form is submitted
+        alert("Signup complete!");
+
+        // Redirect the user to the login page after 2 seconds
+        setTimeout(function() {
+            window.location.href = "user_login.html";
+        }, 2000); // 2000 milliseconds = 2 seconds
+    }
 
     try {
             const response = await fetch('signup.php', { method: 'POST', body: formData });
@@ -193,7 +204,7 @@
 
             if (result.success) {
                 alert('Account created successfully! Redirecting to login page...');
-                window.location.href = 'user_login.html';
+                window.location.href = 'login.html';
             } else {
                 displayError(result.message || 'An error occurred during signup. Please try again.');
             }
