@@ -257,7 +257,7 @@ function checkout() {
 // Fetch menu items from the server
 async function fetchMenuItems() {
     try {
-        const response = await fetch('/php/menu_items.php'); // Ensure this URL is correct
+        const response = await fetch('menu_items.php'); // Ensure this URL is correct
         if (!response.ok) throw new Error('Failed to fetch menu items');
         const menuItems = await response.json();
 
