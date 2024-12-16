@@ -45,9 +45,9 @@
             </div>
         </div>
         <div class="flex items-center hidden sm:block">
-            <a class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out" href="user_login.html">Log In</a>
-            <a class="font-bold text-[18px] text-[#004D40] mx-6 hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out" href="user_signup.html">Sign Up</a>
-            <a class="font-bold text-[18px] text-[#004D40] hidden" href="">Account</a>
+            <a class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out" id="login-link" href="user_login.html">Log In</a>
+            <a class="font-bold text-[18px] text-[#004D40] mx-6 hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out" id="signup-link" href="user_signup.html">Sign Up</a>
+            <a class="font-bold text-[18px] text-[#004D40] hidden" id="account-tab" href="account.html">Account</a>
             <a class="fa-solid fa-user text-[#0E2E24] text-[20px] text-center cursor-pointer" href="admin.html"></a>
         </div>
         <div id="burger" onclick="menu()" class="flex flex-col justify-between w-8 h-6 cursor-pointer md:hidden">
@@ -187,7 +187,35 @@
     // Animate the burger to X
     burger.classList.toggle("open");
 }
-    
+const loginLink = document.getElementById('login-link');
+    const signupLink = document.getElementById('signup-link');
+    const accountTab = document.getElementById('account-tab');
+    const adminIcon = document.getElementById('admin-icon');
+    const username = sessionStorage.getItem('username');
+
+    // Update UI based on login status
+    function updateNavState() {
+        if (username) {
+            // If logged in, show Account and Admin Icon, hide Login and Signup
+            loginLink.style.display = 'none';
+            signupLink.style.display = 'none';
+            accountTab.style.display = 'block';
+            adminIcon.style.display = 'block';
+        } else {
+            // If not logged in, show Login and Signup, hide Account and Admin Icon
+            loginLink.style.display = 'block';
+            signupLink.style.display = 'block';
+            accountTab.style.display = 'none';
+            adminIcon.style.display = 'none';
+        }
+    }
+    updateNavState(); // Call the function to set the initial state
+
+    // Optionally, add event listeners to login and logout to refresh UI dynamically
+    document.getElementById('logout-button')?.addEventListener('click', () => {
+        sessionStorage.removeItem('username');
+        updateNavState();
+    });
     </script>
 </body>
 </html>

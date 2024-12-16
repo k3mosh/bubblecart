@@ -15,24 +15,37 @@ if ($conn->connect_error) {
 }
 
 // Get the username and password from the request
-$user = $data['username'];
-$pass = $data['password'];
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-// Prepare SQL query to check if the user exists
-$sql = "SELECT * FROM customer_signup WHERE username = ? AND password = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $user, $pass);
+$query = "SELECT id, username, email, password, phone, CONCAT(barangay, ', ', street) AS address 
+          FROM customer_signup 
+          WHERE username = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("s", $username);
 $stmt->execute();
 $result = $stmt->get_result();
 
-if ($result->num_rows > 0) {
-    // User found, login success
-    echo json_encode(['success' => true]);
+if ($result->num_rows === 1) {
+    $user = $result->fetch_assoc();
+
+    // Ensure phone is set or default to 'Not available'
+    $phone = $user['phone'] ?: 'Not available'; // If phone is null, set 'Not available'
+
+    // Store in session
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['username'] = $user['username'];
+    $_SESSION['phone'] = $phone;
+    $_SESSION['address'] = $user['address'];
+
+    // Send a response with the necessary user data
+    echo json_encode([
+        'success' => true,
+        'username' => $user['username'],
+        'phone' => $phone, // Ensure phone is returned
+        'address' => $user['address']
+    ]);
 } else {
-    // User not found, login failed
-    echo json_encode(['success' => false, 'message' => 'Invalid username or password.']);
+    echo json_encode(['success' => false, 'message' => 'User not found.']);
 }
 
-$stmt->close();
-$conn->close();
-?>
