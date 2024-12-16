@@ -135,66 +135,69 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         function menu() {
-    const burger = document.getElementById("burger");
-    const menu = document.getElementById("menu");
+            const burger = document.getElementById("burger");
+            const menu = document.getElementById("menu");
 
-    // Toggle the menu visibility
-    menu.classList.toggle("opacity-0");
-    menu.classList.toggle("opacity-100");
-    menu.classList.toggle("translate-x-full");
-    menu.classList.toggle("translate-x-0");
+            // Toggle the menu visibility
+            menu.classList.toggle("opacity-0");
+            menu.classList.toggle("opacity-100");
+            menu.classList.toggle("translate-x-full");
+            menu.classList.toggle("translate-x-0");
 
-    // Animate the burger to X
-    burger.classList.toggle("open");
-}
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('form');  // Select the first form on the page
-    const errorMessage = document.getElementById('error-message');
-
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        // Get input values
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value.trim();
-
-        // Validate inputs
-        if (!username || !password) {
-            displayError('Username and password are required.');
-            return;
+            // Animate the burger to X
+            burger.classList.toggle("open");
         }
 
-        try {
-            // Send login request
-            const response = await fetch('login.php');
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('form');  // Select the first form on the page
+            const errorMessage = document.getElementById('error-message');
 
-            const result = await response.json();
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
 
-            if (result.success) {
-                // Save user data to sessionStorage with fallback defaults
-                sessionStorage.setItem('username', result.username);
-                sessionStorage.setItem('phone', result.phone);
-                sessionStorage.setItem('email', result.email || '');
-                sessionStorage.setItem('address', result.address);
-                
-                // Provide feedback before redirecting
-                setTimeout(() => {
-                    window.location.href = 'index.html'; // Redirect to homepage
-                }, 1000); // Wait 1 second before redirecting
-            } else {
-                displayError(result.message);
+                // Get input values
+                const username = document.getElementById('username').value.trim();
+                const password = document.getElementById('password').value.trim();
+
+                // Validate inputs
+                if (!username || !password) {
+                    displayError('Username and password are required.');
+                    return;
+                }
+
+                try {
+                    // Send login request
+                    const response = await fetch('login_check.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ username, password })
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        sessionStorage.setItem('username', username);
+                        // Add more sessionStorage items if needed
+
+                        setTimeout(() => {
+                            window.location.href = 'index.html'; // Redirect to homepage
+                        }, 1000);
+                    } else {
+                        displayError(result.message);
+                    }
+                } catch (error) {
+                    displayError('An error occurred. Please try again later.');
+                }
+            });
+
+            // Function to display error messages
+            function displayError(message) {
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block';
             }
-        } catch (error) {
-            displayError('An error occurred. Please try again later.');
-        }
-    });
-
-    // Function to display error messages
-    function displayError(message) {
-        errorMessage.textContent = message;
-        errorMessage.style.display = 'block';
-    }
-});
+        });
 
     </script>
 </body>

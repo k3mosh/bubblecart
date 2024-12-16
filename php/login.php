@@ -17,7 +17,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connect
 if ($conn->connect_error) {
-    die(json_encode(['success' => false, 'message' => 'Database connection failed.']));
+    die(json_encode(['success' => false, 'message' => 'Database connection failed.'])); 
 }
 
 // Get the username and password from the request
