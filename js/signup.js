@@ -99,8 +99,7 @@ form.addEventListener('submit', async (e) => {
         displayError('An unexpected error occurred. Please try again later.');
     }
 });
-populateBarangays();
-});
+
 function menu() {
     const burger = document.getElementById("burger");
     const menu = document.getElementById("menu");
@@ -133,4 +132,8 @@ nextBtn.addEventListener('click', () => {
 backBtn.addEventListener('click', () => {
     secondForm.classList.add('hidden');
     firstForm.classList.remove('hidden');
+});
+
+
+populateBarangays();
 });
