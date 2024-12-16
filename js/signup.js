@@ -86,7 +86,7 @@ form.addEventListener('submit', async (e) => {
     formData.append('password', password);
 
     try {
-        const response = await fetch('customer_signup.php', { method: 'POST', body: formData });
+        const response = await fetch('/php/customer_signup.php', { method: 'POST', body: formData });
         const result = await response.json();
 
         if (result.success) {
