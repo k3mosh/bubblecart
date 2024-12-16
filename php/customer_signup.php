@@ -1,4 +1,14 @@
 <?php
+
+// Allow requests from any origin
+header("Access-Control-Allow-Origin: *");
+
+// Allow specific HTTP methods (GET, POST, etc.)
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+
+// Allow specific headers
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
 echo "Hello, PHP is working!";
 
 // Database connection
