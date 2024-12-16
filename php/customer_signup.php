@@ -22,19 +22,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $barangay = trim($_POST['barangay']);
     $street = trim($_POST['street']);
 
+    // Validate required fields
     if (empty($username) || empty($password) || empty($email)) {
         echo json_encode(['success' => false, 'message' => 'All required fields must be filled out.']);
         exit;
     }
 
+    // Validate email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo json_encode(['success' => false, 'message' => 'Invalid email format.']);
         exit;
     }
 
+    // Hash password
     $hashedPassword = password_hash($password, PASSWORD_ARGON2ID);
 
     try {
+        // Check if username or email already exists
         $stmt = $conn->prepare("SELECT username, email FROM users WHERE username = ? OR email = ?");
         $stmt->bind_param("ss", $username, $email);
         $stmt->execute();
@@ -42,11 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($result->num_rows > 0) {
             echo json_encode(['success' => false, 'message' => 'Username or email already exists.']);
+            $stmt->close();
+            $conn->close();
             exit;
         }
 
-        $stmt = $conn->prepare("INSERT INTO users (fisrt_name, last_name, username, password, email, phone, barangay, street) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssssss", $username, $hashedPassword, $email, $phone, $barangay, $street);
+        // Insert new user
+        $stmt = $conn->prepare("INSERT INTO users (first_name, last_name, username, password, email, phone, barangay, street) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssssss", $fname, $lname, $username, $hashedPassword, $email, $phone, $barangay, $street);
 
         if ($stmt->execute()) {
             echo json_encode(['success' => true, 'message' => 'Account created successfully.']);
@@ -56,5 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } catch (Exception $e) {
         echo json_encode(['success' => false, 'message' => 'An error occurred. Please try again later.']);
     }
+
+    $stmt->close();
+    $conn->close();
 }
 ?>
