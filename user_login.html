@@ -147,7 +147,29 @@
     // Animate the burger to X
     burger.classList.toggle("open");
 }
-    
+async function submitForm(event) {
+            event.preventDefault();  // Prevent form submission to handle with JavaScript
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            const response = await fetch('login.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password })
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                // Handle successful login
+                alert('Login Successful!');
+                window.location.href = 'dashboard.html'; // Redirect to dashboard
+            } else {
+                // Handle errors
+                alert('Invalid credentials. Please try again.');
+            }
+        }
     </script>
 </body>
 </html>
