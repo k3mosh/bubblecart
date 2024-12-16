@@ -4,8 +4,9 @@
 // Set content type to JSON
 header('Content-Type: application/json');
 
-// Get the JSON data from the request
-$data = json_decode(file_get_contents('php://input'), true);
+// Get the POST data
+$username = $_POST['username'];
+$password = $_POST['password'];
 
 // Connect to the database (modify with your actual credentials)
 include 'dbconn.php';
@@ -14,10 +15,7 @@ if ($conn->connect_error) {
     die(json_encode(['success' => false, 'message' => 'Database connection failed.']));
 }
 
-// Get the username and password from the request
-$username = $_POST['username'];
-$password = $_POST['password'];
-
+// Query to fetch user details
 $query = "SELECT id, username, email, password, phone, CONCAT(barangay, ', ', street) AS address 
           FROM customer_signup 
           WHERE username = ?";
@@ -29,23 +27,27 @@ $result = $stmt->get_result();
 if ($result->num_rows === 1) {
     $user = $result->fetch_assoc();
 
-    // Ensure phone is set or default to 'Not available'
-    $phone = $user['phone'] ?: 'Not available'; // If phone is null, set 'Not available'
+    // Check if the password matches
+    if (password_verify($password, $user['password'])) {
+        // Store in session
+        session_start();
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['phone'] = $user['phone'] ?: 'Not available'; // Default if phone is empty
+        $_SESSION['address'] = $user['address'];
 
-    // Store in session
-    $_SESSION['user_id'] = $user['id'];
-    $_SESSION['username'] = $user['username'];
-    $_SESSION['phone'] = $phone;
-    $_SESSION['address'] = $user['address'];
-
-    // Send a response with the necessary user data
-    echo json_encode([
-        'success' => true,
-        'username' => $user['username'],
-        'phone' => $phone, // Ensure phone is returned
-        'address' => $user['address']
-    ]);
+        // Send a success response with the necessary user data
+        echo json_encode([
+            'success' => true,
+            'username' => $user['username'],
+            'phone' => $user['phone'] ?: 'Not available', // Ensure phone is returned
+            'address' => $user['address']
+        ]);
+    } else {
+        // Invalid password
+        echo json_encode(['success' => false, 'message' => 'Invalid password.']);
+    }
 } else {
+    // User not found
     echo json_encode(['success' => false, 'message' => 'User not found.']);
 }
-
