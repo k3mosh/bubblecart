@@ -185,8 +185,113 @@
     </div>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./js/signup.js">
-     
+    <script>
+      function submitForm(event) {
+        event.preventDefault(); // Prevent form from submitting normally
+
+        // Show an alert after the form is submitted
+        alert("Signup complete!");
+
+        // Redirect the user to the login page after 2 seconds
+        setTimeout(function() {
+            window.location.href = "user_login.html";
+        }, 2000); // 2000 milliseconds = 2 seconds
+    }
+    
+        const firstForm = document.getElementById('first-form');
+        const secondForm = document.getElementById('second-form');
+        const nextBtn = document.getElementById('next-btn');
+        const backBtn = document.getElementById('back-btn');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm_password');
+        const passwordError = document.getElementById('password-error');
+
+        // Move to the next form
+        nextBtn.addEventListener('click', () => {
+            firstForm.classList.add('hidden');
+            secondForm.classList.remove('hidden');
+        });
+
+        // Go back to the first form
+        backBtn.addEventListener('click', () => {
+            secondForm.classList.add('hidden');
+            firstForm.classList.remove('hidden');
+        });
+
+        // Validate passwords
+        function validateForm(event) {
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                event.preventDefault();
+                passwordError.classList.remove('hidden');
+            }
+        }
+
+        confirmPasswordInput.addEventListener('input', () => {
+            if (passwordInput.value === confirmPasswordInput.value) {
+                passwordError.classList.add('hidden');
+            }
+        });
+                    // JavaScript code
+        const barangayOptions = {
+                barangay1: ['Street 1', 'Street 2', 'Street 3'],
+                barangay2: ['Street A', 'Street B', 'Street C'],
+                // Add more Barangay-Street mappings as needed
+                };
+
+        const barangayDropdowns = document.querySelectorAll('#barangay');
+        const streetDropdowns = document.querySelectorAll('#street');
+
+        barangayDropdowns.forEach((barangayDropdown, index) => {
+          barangayDropdown.addEventListener('change', () => {
+            const selectedBarangay = barangayDropdown.value;
+            const streetOptions = barangayOptions[selectedBarangay] || [];
+
+            const streetDropdown = streetDropdowns[index];
+            streetDropdown.innerHTML = '<option value="">Select a Street</option>';
+            streetOptions.forEach((street) => {
+              const option = document.createElement('option');
+              option.value = street;
+              option.textContent = street;
+              streetDropdown.appendChild(option);
+            });
+          });
+        });
+                function menu() {
+            const burger = document.getElementById("burger");
+            const menu = document.getElementById("menu");
+
+            // Toggle the menu visibility
+            menu.classList.toggle("opacity-0");
+            menu.classList.toggle("opacity-100");
+            menu.classList.toggle("translate-x-full");
+            menu.classList.toggle("translate-x-0");
+
+            // Animate the burger to X
+            burger.classList.toggle("open");
+        }
+
+        function validateForm(event) {
+        const firstName = document.getElementById('first_name').value.trim();
+        const lastName = document.getElementById('last_name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const confirmPassword = document.getElementById('confirm_password').value.trim();
+
+        if (!firstName || !lastName || !email || !password || !confirmPassword) {
+            alert("Please fill in all required fields.");
+            event.preventDefault(); // Prevent form submission
+            return false;
+        }
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match.");
+            event.preventDefault(); // Prevent form submission
+            return false;
+        }
+
+        return true; // Allow form submission
+    }
+
     
     </script>
 </body>
