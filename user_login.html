@@ -68,7 +68,7 @@
           <h2 class="text-[38px] font-bold text-[#004d40] text-center mb-6">Customer Login</h2>
       
           <!-- Form -->
-          <form>
+          <form id="login-form">
             <!-- Username -->
             <div class="mb-4">
               <label for="username" class="block font-bold text-[#004d40] mb-2">Username:</label>
@@ -148,7 +148,7 @@
     burger.classList.toggle("open");
 }
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('login-form');
+    const form = document.querySelector('form');  // Select the first form on the page
     const errorMessage = document.getElementById('error-message');
 
     form.addEventListener('submit', async (e) => {
@@ -199,7 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
         errorMessage.style.display = 'block';
     }
 });
-
 
     </script>
 </body>
