@@ -1,20 +1,3 @@
-function menu() {
-    const burger = document.getElementById("burger");
-    const menu = document.getElementById("menu");
-
-    // Toggle the menu visibility
-    menu.classList.toggle("opacity-0");
-    menu.classList.toggle("opacity-100");
-    menu.classList.toggle("translate-x-full");
-    menu.classList.toggle("translate-x-0");
-
-    // Animate the burger to X
-    burger.classList.toggle("open");
-}
-
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
     const barangaySelect = document.getElementById('barangay');
     const streetSelect = document.getElementById('street');
@@ -117,6 +100,26 @@ form.addEventListener('submit', async (e) => {
     }
 });
 
+
+
+
+
+
+populateBarangays();
+});
+function menu() {
+    const burger = document.getElementById("burger");
+    const menu = document.getElementById("menu");
+
+    // Toggle the menu visibility
+    menu.classList.toggle("opacity-0");
+    menu.classList.toggle("opacity-100");
+    menu.classList.toggle("translate-x-full");
+    menu.classList.toggle("translate-x-0");
+
+    // Animate the burger to X
+    burger.classList.toggle("open");
+}
 function displayError(message) {
     errorMessage.textContent = message;
     errorMessage.style.display = 'block';
@@ -125,7 +128,6 @@ const firstForm = document.getElementById('first-form');
 const secondForm = document.getElementById('second-form');
 const nextBtn = document.getElementById('next-btn');
 const backBtn = document.getElementById('back-btn');
-const passwordInput = document.getElementById('password');
 
 // Move to the next form
 nextBtn.addEventListener('click', () => {
@@ -137,6 +139,4 @@ nextBtn.addEventListener('click', () => {
 backBtn.addEventListener('click', () => {
     secondForm.classList.add('hidden');
     firstForm.classList.remove('hidden');
-});
-populateBarangays();
 });
