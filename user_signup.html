@@ -186,6 +186,41 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/js/signup.js"> </script>
+    <script>
+      function menu() {
+        const burger = document.getElementById("burger");
+        const menu = document.getElementById("menu");
+
+        // Toggle the menu visibility
+        menu.classList.toggle("opacity-0");
+        menu.classList.toggle("opacity-100");
+        menu.classList.toggle("translate-x-full");
+        menu.classList.toggle("translate-x-0");
+
+        // Animate the burger to X
+        burger.classList.toggle("open");
+    }
+    function displayError(message) {
+        errorMessage.textContent = message;
+        errorMessage.style.display = 'block';
+    } 
+    const firstForm = document.getElementById('first-form');
+    const secondForm = document.getElementById('second-form');
+    const nextBtn = document.getElementById('next-btn');
+    const backBtn = document.getElementById('back-btn');
+
+    // Move to the next form
+    nextBtn.addEventListener('click', () => {
+        firstForm.classList.add('hidden');
+        secondForm.classList.remove('hidden');
+    });
+
+    // Go back to the first form
+    backBtn.addEventListener('click', () => {
+        secondForm.classList.add('hidden');
+        firstForm.classList.remove('hidden');
+    });
+    </script>
    
   
 </body>
