@@ -1,4 +1,5 @@
 const errorMessage = document.getElementById('error-message');
+
 document.addEventListener('DOMContentLoaded', () => {
     const barangaySelect = document.getElementById('barangay');
     const streetSelect = document.getElementById('street');
