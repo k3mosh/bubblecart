@@ -1,4 +1,6 @@
 <?php
+echo "Hello, PHP is working!";
+
 // Database connection
 $servername = "srv1632.hstgr.io";
 $username = "u143688490_user";
@@ -66,5 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt->close();
     $conn->close();
+    
 }
 ?>
