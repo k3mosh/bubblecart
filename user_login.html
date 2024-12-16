@@ -166,11 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Send login request
-            const response = await fetch('https://khaki-stingray-740394.hostingersite.com/php/login.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams({ username, password }),
-            });
+            const response = await fetch('login.php');
 
             const result = await response.json();
 
