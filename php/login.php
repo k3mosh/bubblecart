@@ -7,9 +7,15 @@ header('Content-Type: application/json');
 // Get the JSON data from the request
 $data = json_decode(file_get_contents('php://input'), true);
 
-// Connect to the database (modify with your actual credentials)
-include 'dbconn.php';
+// Database connection
+$servername = "srv1632.hstgr.io";
+$username = "u143688490_user";
+$password = "Kyuzumi112";
+$dbname = "u143688490_bubblecart";
 
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connect
 if ($conn->connect_error) {
     die(json_encode(['success' => false, 'message' => 'Database connection failed.']));
 }
