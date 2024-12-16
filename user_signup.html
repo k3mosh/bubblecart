@@ -65,9 +65,9 @@
           <h2 class="text-[38px] font-bold text-[#004d40] text-center mb-6">Customer Sign Up</h2>
           <!-- Form -->
 
-            <form  id="signup-form" action="signup.php" method="POST" onsubmit="validateForm(event)">
+            <form  id="signup-form"  >
                 <!-- First Form -->
-                <div id="first-form" class="mb-6"  method="POST"  >
+                <div id="first-form" class="mb-6"   >
                   <!-- Name -->
                   <div class="mb-6 flex flex-row space-x-4">
                     <div class="flex-1">
@@ -98,8 +98,7 @@
                       <label for="barangay" class="block font-bold text-[#004d40] mb-2">Barangay:</label>
                       <select id="barangay" name="barangay" required class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#2B8A6D]">
                         <option value="">Select a Barangay</option>
-                        <option value="barangay1">Barangay 1</option>
-                        <option value="barangay2">Barangay 2</option>
+  
                         <!-- Add more Barangay options as needed -->
                       </select>
                     </div>
@@ -117,7 +116,7 @@
                 </div>
               
               <!-- Second Form -->
-                <div id="second-form" class="mb-6 hidden" action="signup.php" onsubmit="validateForm(event)">
+                <div id="second-form" class="mb-6 hidden">
                     <div class="flex items-center mb-6">
                     <!-- Back Button -->
                     <button id="back-btn" type="button" class="mr-4 text-[#004d40] hover:text-[#2a665c] transition ">
@@ -140,8 +139,8 @@
                 
                     <!-- Confirm Password -->
                     <div class="mb-6">
-                    <label for="confirm_password" class="block font-bold text-[#004d40] mb-2">Confirm Password:</label>
-                    <input type="password" id="confirm_password" name="confirm_password"  class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#2B8A6D]" placeholder="Confirm your password" required/>
+                    <label for="confirm-password" class="block font-bold text-[#004d40] mb-2">Confirm Password:</label>
+                    <input type="password" id="confirm-password" name="confirm-password"  class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#2B8A6D]" placeholder="Confirm your password" required/>
                     </div>
                 
                     <div class="flex justify-between">
@@ -185,108 +184,8 @@
     </div>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      function submitForm(event) {
-        event.preventDefault(); // Prevent form from submitting normally
-
-        // Show an alert after the form is submitted
-        alert("Signup complete!");
-
-        // Redirect the user to the login page after 2 seconds
-        setTimeout(function() {
-            window.location.href = "user_login.html";
-        }, 2000); // 2000 milliseconds = 2 seconds
-    }
-
-    try {
-            const response = await fetch('signup.php', { method: 'POST', body: formData });
-            const result = await response.json();
-
-            if (result.success) {
-                alert('Account created successfully! Redirecting to login page...');
-                window.location.href = 'login.html';
-            } else {
-                displayError(result.message || 'An error occurred during signup. Please try again.');
-            }
-        } catch (error) {
-            displayError('An unexpected error occurred. Please try again later.');
-        }
-    
-        const firstForm = document.getElementById('first-form');
-        const secondForm = document.getElementById('second-form');
-        const nextBtn = document.getElementById('next-btn');
-        const backBtn = document.getElementById('back-btn');
-        const passwordInput = document.getElementById('password');
-        const confirmPasswordInput = document.getElementById('confirm_password');
-        const passwordError = document.getElementById('password-error');
-
-        // Move to the next form
-        nextBtn.addEventListener('click', () => {
-            firstForm.classList.add('hidden');
-            secondForm.classList.remove('hidden');
-        });
-
-        // Go back to the first form
-        backBtn.addEventListener('click', () => {
-            secondForm.classList.add('hidden');
-            firstForm.classList.remove('hidden');
-        });
-
-        // Validate passwords
-        function validateForm(event) {
-            if (passwordInput.value !== confirmPasswordInput.value) {
-                event.preventDefault();
-                passwordError.classList.remove('hidden');
-            }
-        }
-
-        confirmPasswordInput.addEventListener('input', () => {
-            if (passwordInput.value === confirmPasswordInput.value) {
-                passwordError.classList.add('hidden');
-            }
-        });
-                    // JavaScript code
-        const barangayOptions = {
-                barangay1: ['Street 1', 'Street 2', 'Street 3'],
-                barangay2: ['Street A', 'Street B', 'Street C'],
-                // Add more Barangay-Street mappings as needed
-                };
-
-        const barangayDropdowns = document.querySelectorAll('#barangay');
-        const streetDropdowns = document.querySelectorAll('#street');
-
-        barangayDropdowns.forEach((barangayDropdown, index) => {
-          barangayDropdown.addEventListener('change', () => {
-            const selectedBarangay = barangayDropdown.value;
-            const streetOptions = barangayOptions[selectedBarangay] || [];
-
-            const streetDropdown = streetDropdowns[index];
-            streetDropdown.innerHTML = '<option value="">Select a Street</option>';
-            streetOptions.forEach((street) => {
-              const option = document.createElement('option');
-              option.value = street;
-              option.textContent = street;
-              streetDropdown.appendChild(option);
-            });
-          });
-        });
-                function menu() {
-            const burger = document.getElementById("burger");
-            const menu = document.getElementById("menu");
-
-            // Toggle the menu visibility
-            menu.classList.toggle("opacity-0");
-            menu.classList.toggle("opacity-100");
-            menu.classList.toggle("translate-x-full");
-            menu.classList.toggle("translate-x-0");
-
-            // Animate the burger to X
-            burger.classList.toggle("open");
-        }
-
-    
-
-    
-    </script>
+    <script src="/js/signup.js"> </script>
+   
+  
 </body>
 </html>
