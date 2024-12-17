@@ -1,0 +1,402 @@
+/* About Us Section Styling */
+    /* General Styling with Gradient Background */
+    body {
+        font-family: 'Baloo 2', sans-serif;
+        margin: 0;
+        background: linear-gradient(to right, #e0f7ec, #A8E6CF); /* Light green to soft teal gradient */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh; /* Make the height long enough to enable scrolling */
+    }
+
+    /* Header Container with Improved Shadow */
+    .header {
+        position: fixed; /* Fixed at the top */
+        top: 0; /* Stick to the top of the viewport */
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 70px;
+        background-color: rgb(43, 138, 109); /* No transparency */
+        padding: 15px;
+        color: #ffffff;
+        box-sizing: border-box;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow for more visibility */
+        z-index: 1000; /* Ensures the header stays on top of the other elements */
+    }
+
+    /* Logo Styling */
+    .logo img {
+        height: auto; /* Allow the height to adjust naturally */
+        max-height: 45px; /* Set the maximum height to control logo size */
+        width: auto; /* Keep aspect ratio intact */
+        margin-left: 40px; /* Adjust left margin for balanced spacing */
+    }
+
+    /* Navigation Container */
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Left Navigation Links */
+    .navigation-left {
+        display: flex;
+        gap: 30px;
+        margin-left: 70px;
+    }
+
+    .navigation-left a {
+        color: #004D40;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: color 0.3s ease;
+    }
+
+    .navigation-left a:hover {
+        color: #b4e2d5; /* Lightens on hover for contrast */
+    }
+
+    /* Right Navigation Links */
+    .navigation-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* Right Navigation Links */
+    .navigation-right a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: color 0.3s ease;
+    }
+
+    /* Styling for Log In Link */
+    .navigation-right a:nth-child(1) {
+        color: #004D40; /* Default color for Log In */
+    }
+
+    .navigation-right a:nth-child(1):hover {
+        color: #b4e2d5; /* Different hover color for Log In link */
+    }
+
+    /* Styling for Sign Up Link */
+    .navigation-right a:nth-child(2) {
+        color: #04362a; /* Unique color for Sign Up link */
+        text-decoration: none; /* Remove underline */
+    }
+
+    .navigation-right a:nth-child(2):hover {
+        color: #b4e2d5; /* Lighten the color on hover for Sign Up */
+    }
+    .navigation-right a:nth-child(3) {
+        color: #04362a; /* Unique color for Sign Up link */
+        text-decoration: none; /* Remove underline */
+    }
+    .navigation-right a:nth-child(3):hover {
+        color: #b4e2d5; /* Lighten the color on hover for Sign Up */
+    }
+
+    /* Admin Icon Styling */
+    .admin-icon {
+        opacity: calc(70%);
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+    .admin-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+    .admin-icon img:hover {
+        transform: scale(1.1); /* Slight zoom effect on hover */
+    }
+
+          /* Burger Menu Styling */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.burger-menu .line {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: transform 0.3s ease;
+}
+
+.about-section {
+    margin-top: 100px; /* Space below the header */
+    padding: 20px;
+    max-width: 1080px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.about-section h1, .about-section h2 {
+    color: #004D40;
+    font-weight: bold;
+}
+
+.about-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about-section h2 {
+    font-size: 1.8rem;
+    margin-top: 30px;
+}
+
+.about-section p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.about-section ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.about-section ul li {
+    font-size: 1.2rem;
+    color: #004D40;
+    margin: 5px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.about-section ul li::before {
+    content: '✔'; /* Add checkmark icon */
+    color: #004D40;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.about-image {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img {
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Developer Section Styling */
+.developer-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.developer-card {
+    background: linear-gradient(to right, #f7f9fc, #e0f7ec);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.developer-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.developer-card img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.developer-card h3 {
+    font-size: 1.5rem;
+    color: #004D40;
+    margin-bottom: 10px;
+}
+
+.developer-card p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.developer-card a {
+    color: #004D40;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.developer-card a:hover {
+    color: #206953;
+}
+
+
+
+@media (max-width: 768px) {
+    /* Burger Menu */
+    .burger-menu {
+        margin-right: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
+        z-index: 1001; /* Ensures it's above the navigation */
+    }
+
+    .burger-menu .line {
+        width: 100%;
+        height: 3px;
+        background-color: #004D40;
+        transition: transform 0.3s ease;
+    }
+
+    /* Navigation Menu */
+    .navigation {
+        position: relative;
+        overflow: hidden;
+        margin-top: 70px;
+        padding-top: 40px;
+        position: fixed;
+        top: 0;
+        right: -100%; /* Start hidden on the right */
+        width: 250px;
+        height: 100%;
+        background-color: rgb(92, 168, 145);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; /* Align vertically */
+        gap: 20px;
+        transition: right 0.3s ease; /* Smooth transition for sliding */
+        z-index: 1000; /* Ensures it stays on top */
+    }
+
+    
+    /* Show class to slide the menu in */
+    .navigation.show {
+        right: 0; /* Slide in from the right */
+    }
+
+    /* Navigation Left (Home, Craft Now, About Us) */
+    .navigation-left {
+        display: flex;
+        flex-direction: column; /* Stack vertically */
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .navigation-left a {
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: color 0.3s ease;
+        margin-bottom: 15px; /* Add spacing between links */
+    }
+
+    .navigation-left a:hover {
+        color: #b4e2d5;
+    }
+    
+    /* Navigation Right (Login, Sign Up, Account, Admin Icon) */
+    .navigation-right {
+        display: flex;
+        flex-direction: column; /* Stack vertically */
+        align-items: flex-start;
+        width: 100%;
+        margin-left: 65px;
+    }
+
+    .navigation-right a {
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: color 0.3s ease;
+        margin-bottom: 15px; /* Add spacing between links */
+    }
+
+    .navigation-right a:hover {
+        color: #b4e2d5;
+    }
+
+
+    
+    /* Admin icon positioning inside the modal */
+    .admin-icon {
+        margin-right: 15px;
+        position: absolute; /* Position relative to the parent container */
+        top: 10px; /* Adjust the position from the top of the parent */
+        right: 10px; /* Adjust the position from the right side */
+    }
+    
+    /* Optionally adjust padding and size */
+    .admin-icon a {
+        padding-left: 0; /* Remove unnecessary padding if you want exact placement */
+        align-items: center;
+    }
+    .about-section {
+        padding: 10px;
+        margin-top: 150px; /* Adjust spacing for mobile view */
+    }
+
+    .about-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .about-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .about-section p,
+    .about-section ul li {
+        font-size: 1rem;
+    }
+
+    .about-image img {
+        width: 90%; /* Make the image responsive */
+    }
+
+    .developer-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .developer-card {
+        width: 80%;
+        max-width: 300px;
+    }
+   
+}

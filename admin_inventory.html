@@ -170,45 +170,33 @@
 
                                 </div>
 
-                                <div class="bg-[#2B8A6D] p-6 rounded-lg shadow-lg  w-full h-[300px] mt-3 md:w-[520px]">
+                                <div class="bg-[#2B8A6D] p-6 rounded-lg shadow-lg w-full h-[300px] md:h-[620px] mt-3 md:w-[520px]">
                                     <div id="x" class="w-full h-full overflow-x-auto">
                                         <!-- Header Row with Fixed Widths and Centered Text -->
-                                        <div
-                                            class=" sticky top-0 flex flex-row gap-3 text-[#A8E6CF] font-baloo2 font-bold whitespace-nowrap w-full px-4 bg-[#2B8A6D] z-10  md:text-[22px]">
+                                        <div class="sticky top-0 flex flex-row gap-3 text-[#A8E6CF] font-baloo2 font-bold whitespace-nowrap w-full px-4 bg-[#2B8A6D] z-10 md:text-[22px]">
                                             <p class="w-1/2 text-center">Item Name</p>
-                                            <p class="w-1/2 text-center">Quantity </p>
-
+                                            <p class="w-1/2 text-center">Quantity</p>
                                         </div>
+                                        
                                         <!-- Data Rows -->
                                         <!-- Data Rows Container with Vertical Scroll -->
                                         <div id="y" class="w-full h-fit overflow-y-auto">
-                                            <!-- Data Row -->
-                                            <div
-                                                class="w-full h-9 md:h-12 bg-[#A8E6CF] rounded-[20px] px-3 flex justify-center items-center mb-3">
-                                                <div
-                                                    class="flex flex-row gap-3 text-[#2B8A6D] font-baloo2 font-bold px-2  md:text-[22px] w-full">
-                                                    <p class="w-1/2 text-center">Matcha Majesty</p>
-                                                    <p class="w-1/2 text-center">100</p>
-
-
-                                                </div>
-                                            </div>
-
+                                            <!-- Data rows will be dynamically added here by JavaScript -->
                                         </div>
                                     </div>
                                 </div>
-
+                                
                             </div>
                         </div>
 
                         <div class="w-full h-1/2 flex flex-col justify-start items-center md:h-full">
-                            <div class="h-fit p-6  w-full md:w-[520px] md:ml-9 ">
+                            <form method="POST" action="/php/manage_inventory.php" class="h-fit p-6  w-full md:w-[520px] md:ml-9 ">
                                 <!-- Select Item -->
                                 <div>
                                   <label for="item" class="block font-bold text-[22px] text-[#2B8A6D] md:text-[28px] mb-1">Select Item:</label>
-                                  <select id="item" class="w-full rounded-[20px] bg-white py-2 px-3 border  md:text-[20px] border-gray-300 text-gray-500 mt-3">
+                                  <select id="item-select" name="item_id" class="w-full rounded-[20px] bg-white py-2 px-3 border  md:text-[20px] border-gray-300 text-gray-500 mt-3">
                                     <option>Select an Item</option>
-                                    <option>Matcha Majesty</option>
+                                    
                                   </select>
                                 </div>
                             
@@ -218,7 +206,8 @@
                                   <input 
                                   min="0"
                                     type="number" 
-                                    id="stock" 
+                                    id="item-stock" 
+                                    name="item_stock"
                                     placeholder="" 
                                     class="w-full rounded-[20px] py-2 px-3 border border-gray-300 bg-white mt-3 md:text-[20px]"
                                   />
@@ -226,17 +215,17 @@
                             
                                 <!-- Buttons -->
                                 <div class="flex justify-between space-x-3 mt-4">
-                                  <button 
+                                  <button name="add-stock"
                                     class="w-1/2 bg-[#2B8A6D] text-[#A8E6CF] font-bold py-2 rounded-[20px] text-[20px] md:text-[28px] hover:bg-[#54b09e]">
                                     Add to Stock
                                   </button>
-                                  <button 
+                                  <button name="update-stock"
                                     class="w-1/2 bg-[#2B8A6D] text-[#A8E6CF] font-bold py-2 rounded-[20px] text-[20px] md:text-[28px] hover:bg-[#54b09e]">
                                     Update Stock
                                   </button>
-                                </div>
+                                </form>
                               </div>
-                        </div>
+                            </form>
 
                     </div>
 
@@ -267,36 +256,9 @@
 
 
     <script src="https://cdn.tailwindcss.com"> </script>
-    <script>
+    <script src="js/admin_inventory.js">
 
 
-        function toggleDropdown() {
-            const dropdown = document.getElementById("dropdownMenu");
-            dropdown.classList.toggle("hidden");
-        }
-
-        function filterOption(option) {
-            alert(`Selected: ${option}`);
-            toggleDropdown();
-        }
-
-        // Function to open the logout modal
-        function openLogoutModal() {
-            document.getElementById('logoutModal').classList.remove('hidden');
-        }
-
-        // Function to close the logout modal
-        function closeLogoutModal() {
-            document.getElementById('logoutModal').classList.add('hidden');
-        }
-
-        // Function to handle logout confirmation (you can customize this as needed)
-        function confirmLogout() {
-            // Perform logout actions here, e.g., redirect to a logout page
-            window.location.href = 'index.html';
-            alert('Logged out successfully!');
-            closeLogoutModal();
-        }
 
     </script>
 

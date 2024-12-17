@@ -114,33 +114,8 @@
                                         </div>
                                </div>
 
-                               <div class="w-full h-[500px]  mt-3 flex flex-wrap justify-center items-start overflow-y-scroll  md:h-[720px] md:justify-center ">
-                                    <div class="w-[160px] h-[200px] bg-[#2B8A6D] m-2 flex justify-center items-center rounded-[20px] p-3 md:w-[220px] md:h-[290px]">
-                                        <div class="flex flex-col justify-start items-center w-full h-full ">
-                                            <div class="w-full h-3/5 px-5">
-                                                <div class="flex-row  w-full h-full flex justify-center items-center bg-[#A8E6CF] rounded-lg">
-        
-                                                        <img src="asset/mt1.png" alt="" class="w-auto h-24 md:h-28">
-                                                
-                                                </div>  
-                                            </div>
-                                            <div class="w-full h-2/5  flex flex-row justify-center items-center ">
-                                                <div class="w-2/3 h-full flex justify-center items-center">
-                                                    <p class="text-center font-baloo2 text-[16px] font-bold text-[#A8E6CF] md:text-[22px]">Matcha Majesty</p>
-                                                </div>
-                                                <div class="w-1/3 flex justify-center items-center">
-                                                    <p class="text-center  font-baloo2 text-[16px] font-bold text-[#A8E6CF] md:text-[22px]">P70</p>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="w-full h-1/5 flex justify-center items-center gap-2">
-                                                <button class=" w-1/2 h-full  md:text-[22px] bg-[#A8E6CF] text-[#2B8A6D] font-bold rounded-lg font-baloo2" id="edit-btn">Edit</button>
-                                                <button class=" w-1/2 h-full  md:text-[22px] bg-[#A8E6CF] text-[#2B8A6D] font-bold rounded-lg font-baloo2">Delete</button>
-                                            </div>
-                                            
-
-                                        </div>
-                                    </div>
+                               <div class="w-full h-[500px]  mt-3 flex flex-wrap justify-center items-start overflow-y-scroll  md:h-[720px] md:justify-center " id="menu-container">
+                                    
         
                                 </div>
 
@@ -156,7 +131,7 @@
                                 <div class="max-w-md mx-auto bg-[#2B8A6D] p-8 rounded-[20px] shadow-lg ">
                                   
                                     <!-- Form -->
-                                    <form action="#" method="POST">
+                                    <form action="add_item.php" method="POST" enctype="multipart/form-data">
                                         <div class="mb-4">
                                             <label for="product_name" class="text-[#A8E6CF] font-bold font-baloo2 md:text-[20px]">Product Name</label>
                                             <input type="text" id="product_name" name="product_name" class="w-full p-3 mt-2 rounded-lg bg-[#b5e4d4] text-[#333] focus:outline-none focus:ring-2 focus:ring-[#004d40]" placeholder="Enter product name" required>
@@ -174,7 +149,7 @@
                             
                                         <div class="mb-4">
                                             <label for="stock_qty" class="text-[#A8E6CF] font-bold font-baloo2 md:text-[20px]">Stock Qty.</label>
-                                            <input type="number" id="stock_qty" name="stock_qty" 
+                                            <input type="number" id="stock_qty" name="stock_qty"  min="1"
                                                 class="w-full p-3 mt-2 rounded-lg bg-[#b5e4d4] text-[#333] focus:outline-none focus:ring-2 focus:ring-[#004d40]"
                                                 placeholder="Enter stock quantity" min="0" required>
                                         </div>
@@ -186,7 +161,7 @@
                                         </div>
                             
                                         <div class="flex justify-between">
-                                            <button type="submit" class="w-[45%] bg-[#A8E6CF] text-[#2B8A6D] p-3 rounded-[20px] text-[18px]  hover:bg-[#54b09e] font-baloo2 font-bold md:text-[24px]">Add Product</button>
+                                            <button type="submit" name="submit" class="w-[45%] bg-[#A8E6CF] text-[#2B8A6D] p-3 rounded-[20px] text-[18px]  hover:bg-[#54b09e] font-baloo2 font-bold md:text-[24px]">Add Product</button>
                                             <button type="button" onclick="window.location.href='admin_editmenu.html';" class=" text-[18px] font-baloo2 font-bold w-[45%] bg-[#A8E6CF] text-[#2B8A6D] p-3 rounded-[20px] hover:bg-[#54b09e] md:text-[24px]">Cancel</button>
                                         </div>
                                     </form>
@@ -195,60 +170,41 @@
                         </div>
                     </div>
 
-                    <div class=" w-full h-full hidden md:mt-9" id="edit-form">
+                    <div class="w-full h-full hidden md:mt-9" id="edit-form">
                         
+                        <!-- Your existing form structure -->
                         <div class="w-full h-fit pt-[20px] flex flex-col justify-center items-start">
-                            
                             <p class="font-bold text-[32px] text-[#2B8A6D] ">Edit Product</p>
                             <div class="w-full h-[420px] md:h-full md:w-[800px]">
-                                
                                 <div class="max-w-md mx-auto bg-[#2B8A6D] p-8 rounded-[20px] shadow-lg ">
-                                  
-                                    <div class="w-full h-[90px] flex flex-row justify-start items-start gap-2 md:h-[120px]">
-                                        <div class="w-1/3 h-full flex justify-center items-center bg-[#A8E6CF] rounded-lg md:h-full">
-                                            <img src="asset/mt1.png" alt="" class="w-14 h-auto md:w-[70px]">
-                                        </div>
-                                        <div class="w-2/3 h-full flex justify-center items-center md:flex md:flex-col">
-                                            <div class="w-2/3 h-full md:w-full"><p class=" font-bold font-baloo2 text-[28px] text-[#0A342D] md:text-center md:text-[34px]">Matcha Majesty</p></div>
-
-                                            <div class="w-1/3 h-full flex justify-center items-center md:w-full"><p class=" font-bold font-baloo2 text-[28px] text-[#0A342D] md:text-[34px]">P70</p></div>
-                                        </div>
-                                        
-                                           
-                                        
-                                    </div>
-                               
+                    
                                     <div class="w-full h-[420px] flex flex-col justify-start items-start mt-3 mb-4">
                                         <form action="#" method="POST" class="w-full">
-                                            <div class="mb-4 ">
+                                            <input type="hidden" id="item_id" name="id">
+                                            <div class="mb-4">
                                                 <label for="product_name" class="text-[#A8E6CF] font-bold font-baloo2 md:text-[20px]">Product Name</label>
-                                                <input value="Matcha Majesty" type="text" id="product_name" name="product_name" class="w-full p-3 mt-2 rounded-lg bg-[#b5e4d4] text-[#333] focus:outline-none focus:ring-2 focus:ring-[#004d40]" placeholder="Enter product name" required>
+                                                <input type="text" id="name" name="name" class="w-full p-3 mt-2 rounded-lg bg-[#b5e4d4] text-[#333] focus:outline-none focus:ring-2 focus:ring-[#004d40]" placeholder="Enter product name" required>
                                             </div>
-                                
                                             <div class="mb-4">
                                                 <label for="item_price" class="text-[#A8E6CF] font-bold font-baloo2 md:text-[20px]">Item Price</label>
-                                                <input value="70" type="number" id="item_price" name="item_price" class="w-full p-3 mt-2 rounded-lg bg-[#b5e4d4] text-[#333] focus:outline-none focus:ring-2 focus:ring-[#004d40]" placeholder="Enter item price" required>
+                                                <input type="number" id="price" name="price" class="w-full p-3 mt-2 rounded-lg bg-[#b5e4d4] text-[#333] focus:outline-none focus:ring-2 focus:ring-[#004d40]" placeholder="Enter item price" required>
                                             </div>
-                                
                                             <div class="mb-4">
                                                 <label for="description" class="text-[#A8E6CF] font-bold font-baloo2 md:text-[20px]">Description</label>
-                                                <textarea id="description" name="description"
-                                                    class="w-full p-3 mt-2 rounded-lg bg-[#b5e4d4] text-[#333] focus:outline-none focus:ring-2 focus:ring-[#004d40]"
-                                                    rows="4" placeholder="Enter product description" required>anjing</textarea>
+                                                <textarea id="desc" name="description" class="w-full p-3 mt-2 rounded-lg bg-[#b5e4d4] text-[#333] focus:outline-none focus:ring-2 focus:ring-[#004d40]" rows="4" placeholder="Enter product description" required></textarea>
                                             </div>
-                                            
-                        
-                                
-                                            <div class="flex justify-between ">
-                                                <button type="submit" class="w-[45%] bg-[#A8E6CF] text-[#2B8A6D] p-3 rounded-[20px] text-[18px]  hover:bg-[#54b09e] font-baloo2 font-bold md:text-[24px]">Save Edit</button>
+                                            <div class="flex justify-between">
+                                                <button type="submit" id="save-edit-btn" class="w-[45%] bg-[#A8E6CF] text-[#2B8A6D] p-3 rounded-[20px] text-[18px] hover:bg-[#54b09e] font-baloo2 font-bold md:text-[24px]">Save Edit</button>
                                                 <button type="button" onclick="window.location.href='admin_editmenu.html';" class=" text-[18px] font-baloo2 font-bold w-[45%] bg-[#A8E6CF] text-[#2B8A6D] p-3 rounded-[20px] hover:bg-[#54b09e] md:text-[24px]">Cancel Edit</button>
                                             </div>
+                                            
                                         </form>
-                                    </div>  
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                 </div>     
             </div>
         </div>
@@ -273,43 +229,9 @@
     
 
     <script src="https://cdn.tailwindcss.com"> </script>
-    <script> 
+    <script src="js/admin_menu.js"> 
         
 
-        const firstForm = document.getElementById('first-form');
-        const secondForm = document.getElementById('second-form');
-        
-        const nextBtn = document.getElementById('next-btn');
-
-        nextBtn.addEventListener('click', () => {
-        firstForm.classList.add('hidden');
-        secondForm.classList.remove('hidden');
-        });
-
-        const editForm = document.getElementById('edit-form');
-        const editBtn = document.getElementById('edit-btn');
-        editBtn.addEventListener('click', () => {
-            firstForm.classList.add('hidden');
-            editForm.classList.remove('hidden');
-        });
-
-// Function to open the logout modal
-function openLogoutModal() {
-    document.getElementById('logoutModal').classList.remove('hidden');
-}
-
-// Function to close the logout modal
-function closeLogoutModal() {
-    document.getElementById('logoutModal').classList.add('hidden');
-}
-
-// Function to handle logout confirmation (you can customize this as needed)
-function confirmLogout() {
-    // Perform logout actions here, e.g., redirect to a logout page
-    window.location.href = 'index.html';
-    alert('Logged out successfully!');
-    closeLogoutModal();
-}
 
         </script>
  

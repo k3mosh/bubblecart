@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/shop.css">
+    <title>SHOP</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="./asset/logo.png" alt="Bubble Cart Logo">
+        </div>
+        <div class="burger-menu" id="burger-menu">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="navigation" id="navigation">
+            <div class="navigation-left">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Craft Now</a>
+                <a href="about.html">About Us</a>
+            </div>
+            <div class="navigation-right">
+                <a href="login.html" id="login-link">Log In</a>
+                <a href="signup.html" id="signup-link">Sign Up</a>
+                <a href="account.html" id="account-tab" style="display: none;">Account</a>
+                <div class="admin-icon">
+                    <a href="admin_login.html">
+                        <img src="./asset/admin.png" alt="Admin Icon">
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+    </header>
+
+    <section class="flavors-section">
+        <h1>Explore Our Flavors</h1>
+        <div class="flavors-container" id="flavors-container">
+            <!-- Menu items will be loaded dynamically here -->
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-header">
+            <h2>Shopping Cart</h2>
+            <button id="close-cart" class="close-cart" aria-label="Close cart">&times;</button>
+        </div>
+        <div class="cart-items">
+            <!-- Items dynamically added here -->
+        </div>
+        <div class="cart-footer">
+            <h3>Total: ₱<span id="cart-total">0</span></h3>
+            <button id="checkout-btn" class="checkout-btn">Check Out</button>
+        </div>
+    </div>
+
+    <!-- Floating Cart Tab -->
+    <div id="cart-tab" class="cart-tab">
+        <div class="cart-tab-content">
+            <img src="./asset/cart.png" alt="Cart Icon">
+            <span id="cart-count">0</span>
+        </div>
+    </div>
+
+    <script src="./js/shop.js">
+        // Function to check if the user is logged in
+        function checkLoginStatus() {
+            // Example: Check if there's a session or a login cookie
+            const isLoggedIn = sessionStorage.getItem('loggedIn'); // Use session storage or cookie to store login state
+
+            if (isLoggedIn) {
+                // If logged in, show account and admin icon, hide login and signup links
+                document.getElementById('login-link').style.display = 'none';
+                document.getElementById('signup-link').style.display = 'none';
+                document.getElementById('account-tab').style.display = 'inline-block';
+                document.querySelector('.admin-icon').style.display = 'block';
+            } else {
+                // If not logged in, show login and signup links, hide account and admin icon
+                document.getElementById('login-link').style.display = 'inline-block';
+                document.getElementById('signup-link').style.display = 'inline-block';
+                document.getElementById('account-tab').style.display = 'none';
+                document.querySelector('.admin-icon').style.display = 'none';
+            }
+        }
+
+        // Ensure that the function is called after the page content is fully loaded
+        document.addEventListener('DOMContentLoaded', checkLoginStatus);
+    </script>
+</body>
+</html>

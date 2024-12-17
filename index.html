@@ -40,22 +40,24 @@
             </div>
             <div class="w-fit h-fit hidden sm:block flex ">
                 <a class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out" href="">Home</a>
-                <a class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out mx-6" href="shop.html" >Craft Now</a>
+                <a class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out mx-6" href="shop.html">Craft Now</a>
                 <a class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out" href="about.html">About Us</a>
             </div>
         </div>
         <div class="flex items-center hidden sm:block">
-            <a class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out" id="login-link" href="user_login.html">Log In</a>
-            <a class="font-bold text-[18px] text-[#004D40] mx-6 hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out" id="signup-link" href="user_signup.html">Sign Up</a>
-            <a class="font-bold text-[18px] text-[#004D40] hidden" id="account-tab" href="account.html">Account</a>
+            <!-- These will be conditionally shown/hidden -->
+            <a class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out login-link "  id="login-link" href="user_login.html">Log In</a>
+            <a class="font-bold text-[18px] text-[#004D40] mx-6 hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out " id="signup-link" href="user_signup.html">Sign Up</a>
+            <a class="font-bold text-[18px] text-[#004D40] hidden md:mr-6 account-tab" id="account-tab" href="account.html">Account</a> <!-- Initially hidden -->
             <a class="fa-solid fa-user text-[#0E2E24] text-[20px] text-center cursor-pointer" href="admin.html"></a>
         </div>
-        <div id="burger" onclick="menu()" class="flex flex-col justify-between w-8 h-6 cursor-pointer md:hidden">
+        <div id="burger" class="flex flex-col justify-between w-8 h-6 cursor-pointer md:hidden">
             <span class="bar bg-[#004D40] h-1 w-full origin-center transition-transform duration-300 ease-in-out"></span>
             <span class="bar bg-[#004D40] h-1 w-full origin-center transition-transform duration-300 ease-in-out"></span>
             <span class="bar bg-[#004D40] h-1 w-full origin-center transition-transform duration-300 ease-in-out"></span>
         </div>
     </header>
+    
 
     <!-- Body  -->
     <div class="w-full h-full flex justify-center" >
@@ -101,96 +103,37 @@
                
         </div>
        
-       
-  
     
 </div>
-
-
-    <!--Menu Modal -->
-    <div id="menu" class="md:hidden fixed top-0 mt-[70px] left-0 w-full h-full z-50 flex justify-end opacity-0 translate-x-full transition-all ease-in-out duration-300">
-        <div id="content" class="w-[240px] relative h-full bg-[#5CA891]  py-[20px] flex flex-col items-center">
-            <div class="flex justify-end items-center w-full h-fit pr-6"> 
-                <a class="fa-solid fa-user text-[#0E2E24] text-[20px] text-center cursor-pointer" href="admin.html"></a>
-            </div>
-            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
-                <a href="" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">Home</a>
-            </div>
-            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
-                <a href="shop.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">Craft Now</a>
-            </div>
-            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
-                <a href="about.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">About Us</a>
-            </div>
-            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
-                <a href="user_login.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">Log In</a>
-            </div>
-            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
-                <a href="user_signup.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">Sign Up</a>
-            </div>
-            <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
-                <a href="" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out hidden">Account</a>
+    <!-- Assuming this is part of your header or navigation -->
+        <div id="menu" class="md:hidden fixed top-0 mt-[70px] left-0 w-full h-full z-50 flex justify-end opacity-0 translate-x-full transition-all ease-in-out duration-300">
+            <div id="content" class="w-[240px] relative h-full bg-[#5CA891] py-[20px] flex flex-col items-center">
+                <div class="flex justify-end items-center w-full h-fit pr-6"> 
+                    <a class="fa-solid fa-user text-[#0E2E24] text-[20px] text-center cursor-pointer" href="admin.html"></a>
+                </div>
+                <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                    <a href="index.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">Home</a>
+                </div>
+                <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                    <a href="shop.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">Craft Now</a>
+                </div>
+                <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                    <a href="about.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out">About Us</a>
+                </div>
+                <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                    <a href="user_login.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out login-link" id="login-link" >Log In</a>
+                </div>
+                <div class="flex justify-start items-center w-full h-fit pl-6 my-4"> 
+                    <a href="user_signup.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out signup-link " id="signup-link" >Sign Up</a>
+                </div>
+                <div class="flex justify-start items-center w-full h-fit pl-6 my-[-47px]"> 
+                    <a href="account.html" class="font-bold text-[18px] text-[#004D40] hover:text-[#b4e2d5] transition-colors duration-300 ease-in-out hidden account-tab" id="account-tab">Account</a>
+                </div>
             </div>
         </div>
-    </div>
+
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-
-         document.addEventListener('DOMContentLoaded', () => {
-            
-    const items = document.querySelectorAll('.carousel-item'); // Select all carousel items
-    let currentIndex = 0; // Set the initial index to the first item
-
-    function initializeCarousel() {
-        items.forEach((item, index) => {
-            item.classList.remove(
-                'scale-[1.3]',
-                'z-50',
-                'opacity-100',
-                'translate-x-[-150px]',
-                'translate-x-[150px]',
-                'z-10',
-                'opacity-80'
-            );
-
-            if (index === currentIndex) {
-                item.classList.add('scale-[1.3]', 'z-50', 'opacity-100'); // Center item
-            } else if (index === (currentIndex + 1) % items.length) {
-                item.classList.add('translate-x-[150px]', 'z-10', 'opacity-80'); // Right item
-            } else if (index === (currentIndex - 1 + items.length) % items.length) {
-                item.classList.add('translate-x-[-150px]', 'z-10', 'opacity-80'); // Left item
-            }
-        });
-    }
-
-    function rotateCarousel() {
-        if (items.length === 0) return;
-        currentIndex = (currentIndex + 1) % items.length; // Move to the next item
-        initializeCarousel();
-    }
-
-    // Initialize the carousel on page load
-    initializeCarousel();
-
-    // Set the carousel to rotate every 3 seconds
-    setInterval(rotateCarousel, 3000);
-});
-        function menu() {
-    const burger = document.getElementById("burger");
-    const menu = document.getElementById("menu");
-
-    // Toggle the menu visibility
-    menu.classList.toggle("opacity-0");
-    menu.classList.toggle("opacity-100");
-    menu.classList.toggle("translate-x-full");
-    menu.classList.toggle("translate-x-0");
-
-    // Animate the burger to X
-    burger.classList.toggle("open");
-}
-
-
-    </script>
+    <script src="/js/index.js"> </script>
 </body>
 </html>

@@ -1,0 +1,303 @@
+/* General Styling */
+body {
+    font-family: 'Baloo 2', sans-serif;
+    margin: 0;
+    background: linear-gradient(to right, #e0f7ec, #A8E6CF); /* Light green to soft teal gradient */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Ensure scrolling if needed */
+    padding-top: 80px; /* Prevent header overlap */
+    overflow: hidden;
+
+}
+
+/* Header Styling */
+.header {
+    height: 53px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(43, 138, 109, 0.9); /* Semi-transparent green */
+    color: white;
+    padding: 15px 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Visible shadow */
+    z-index: 1000;
+}
+
+.header .logo img {
+    padding-left: 35px;
+    padding-bottom: 5px;
+    height: 45px;
+    width: auto;
+    cursor: pointer;
+}
+
+.header h1 {
+    margin-right: 580px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Account Container */
+.account-container {
+    margin: 20px;
+    max-width: 600px;
+    width: 90%;
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Greeting */
+.account-container h2 {
+    font-size: 1.8rem;
+    color: #004D40; /* Dark green */
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+/* Info Card */
+.info-card {
+    text-align: left;
+    padding: 15px;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.info-card p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    line-height: 1.5;
+    color: #333; /* Neutral text */
+}
+
+.info-card strong {
+    color: #004D40; /* Highlighted labels */
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #004D40;
+}
+
+form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: #f9f9f9; /* Subtle background */
+}
+
+/* Hidden Form */
+/* Hidden Form */
+form.hidden-form {
+
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%; /* Make it take full width of the container */
+    margin-top: 20px;
+}
+
+form.hidden-form div {
+    display: flex;
+    align-items: center; /* Align labels and inputs vertically */
+    justify-content: space-between; /* Separate label and input horizontally */
+    gap: 10px; /* Add space between label and input */
+    width: 100%; /* Full width for each row */
+}
+
+form.hidden-form label {
+    flex: 1; /* Allow label to take a proportional width */
+    text-align: left; /* Align label text to the left */
+    font-weight: bold;
+    color: #004D40; /* Dark green for labels */
+    font-size: 1rem; /* Consistent font size */
+}
+
+form.hidden-form input {
+    flex: 2; /* Input field takes up more space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: #f9f9f9; /* Subtle background */
+    width: 100%; /* Ensure inputs are responsive */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+
+/* Buttons */
+.primary-button,
+.secondary-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.primary-button {
+    background-color: #004D40; /* Dark green */
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: #206953; /* Softer green on hover */
+}
+
+.secondary-button {
+    background-color: #ddd; /* Neutral button */
+    color: #333;
+}
+
+.secondary-button:hover {
+    background-color: #bbb; /* Darker hover effect */
+}
+
+/* Password Form */
+form#password-form {
+    margin-top: 20px;
+    text-align: left;
+}
+
+form#password-form label {
+    margin-bottom: 10px;
+}
+
+/* Logout Button */
+#logout {
+    margin-top: 20px;
+    background-color: #f44336; /* Red for logout */
+    color: white;
+}
+
+#logout:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .account-container {
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    .info-card p {
+        font-size: 1rem;
+    }
+
+    form input {
+        font-size: 0.9rem;
+    }
+
+    .primary-button,
+    .secondary-button {
+        font-size: 0.9rem;
+    }
+}
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; /* Ensure it's above other elements */
+}
+
+.modal.hidden {
+    display: none; /* Hide modal when not needed */
+}
+
+.modal-content {
+    background: #ffffff; /* White box */
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: #004D40; /* Dark green */
+}
+
+.modal-content p {
+    font-size: 1.2rem;
+    color: #333; /* Neutral text */
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.modal-buttons .primary-button {
+    background-color: #004D40; /* Dark green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.modal-buttons .primary-button:hover {
+    background-color: #206953; /* Softer green */
+}
+
+.modal-buttons .secondary-button {
+    background-color: #ddd; /* Neutral button */
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.modal-buttons .secondary-button:hover {
+    background-color: #bbb; /* Darker neutral */
+}

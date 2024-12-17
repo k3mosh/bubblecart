@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/account.css">
+    <title>My Account</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="./asset/logo.png" alt="Logo">
+            </a>
+        </div>
+        <h1>My Account</h1>
+    </header>
+
+    <!-- Account Container -->
+    <div class="account-container">
+        <h2 id="greeting">Hello, User!</h2>
+        <div id="account-info" class="info-card">
+            <p><strong>Username:</strong> <span id="display-username"></span></p>
+            <p><strong>Email:</strong> <span id="display-email"></span></p>
+            <p><strong>Phone Number:</strong> <span id="display-phone"></span></p>
+            <p><strong>Address:</strong> <span id="display-address"></span></p>
+        </div>
+        <button id="edit-account" class="primary-button">Edit Account</button>
+
+        <!-- Hidden Edit Form -->
+        <form id="account-form" class="hidden-form">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div>
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" pattern="^09\d{9}$" placeholder="09123456789" required>
+            </div>
+            <div>
+                <label for="barangay">Barangay:</label>
+                <input type="text" id="barangay" name="barangay" required>
+            </div>
+            <div>
+                <label for="street">Street:</label>
+                <input type="text" id="street" name="street" required>
+            </div>
+            <div>
+                <label for="current-password">Current Password:</label>
+                <input type="password" id="current-password" name="current-password" required>
+            </div>
+            <div>
+                <label for="new-password">New Password:</label>
+                <input type="password" id="new-password" name="new-password" required>
+            </div>
+            <div>
+                <label for="confirm-password">Confirm New Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <button type="button" id="save-account" class="primary-button">Save</button>
+            <button type="button" id="cancel-edit" class="secondary-button">Cancel</button>
+        </form>
+
+        <button id="logout" class="secondary-button">Logout</button>
+    </div>
+
+    
+    <div id="logout-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Confirm Logout</h2>
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button id="confirm-logout" class="primary-button">Yes</button>
+                <button id="cancel-logout" class="secondary-button">No</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./js/account.js"></script>
+</body>
+</html>

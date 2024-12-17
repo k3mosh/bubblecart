@@ -1,16 +1,7 @@
 <?php
 // Database connection
-$servername = "srv1632.hstgr.io";
-$username = "u143688490_user";
-$password = "Kyuzumi112";
-$dbname = "u143688490_bubblecart";
+include "db_connect.php";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 $query = "SELECT * FROM menu_items";
 $result = $conn->query($query);
 
@@ -23,6 +14,7 @@ if ($result && $result->num_rows > 0) {
             'name' => $row['name'],
             'price' => $row['price'],
             'image' => $row['image_url'],
+            'description' => $row['description'],
             'stock_quantity' => $row['stock_quantity']
         ];
     }

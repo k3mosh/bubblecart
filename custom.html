@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/customize.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Customize Your Drink</title>
+</head>
+<body class="font-baloo bg-gradient-to-r from-[#e0f7ec] to-[#A8E6CF] flex flex-col items-center min-h-screen">>
+    <div class="fixed top-0 left-0 right-0 flex justify-between items-center w-full bg-[#2b8a6d] bg-opacity-90 p-4 text-white shadow-xl z-50">
+        <div class="ml-10">
+            <img src="/asset/logo.png" alt="Logo" class="max-h-[45px] h-auto w-auto">
+        </div>
+        <div class="flex justify-between items-center w-full">
+            <div class="flex gap-8 ml-16">
+            <a href="index.html"class="text-[#004D40] font-bold text-lg hover:text-[#b4e2d5]">Home</a>
+            <a href="shop.html" class="text-[#004D40] font-bold text-lg hover:text-[#b4e2d5] ">Craft Now</a>
+            <a href="about.html" class="text-[#004D40] font-bold text-lg hover:text-[#b4e2d5] ">About Us</a>
+        </div>
+        <div class="flex items-center gap-5">
+            <a href="user_login.html" id="login-link" class="text-[#004D40] font-bold text-lg hover:text-[#b4e2d5]">Log In</a>
+            <a href="user_signup.html" id="signup-link" class="text-[#004D40] font-bold text-lg hover:text-[#b4e2d5]">Sign Up</a>
+            <a href="account.html" id="account-tab" style="display: none;" class="text-[#004D40] font-bold text-lg hover:text-[#b4e2d5]">Account</a>
+            <div class="opacity-70 w-6 h-6 cursor-pointer ml-2">
+                <img src="/asset/admin.png" alt="Admin Icon" class="w-full h-full object-contain transition-transform duration-300 hover:scale-110">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   
+
+    <div class="flex justify-center items-center w-full relative pt-[70px] md:h-[120px]">
+        <a href="shop.html"><button class="back-button absolute left-10 w-auto h-10 bg-transparent border-none cursor-pointer top-32 left-2 md:top-20 md:left-10 z-10 opacity-70 transition-transform duration-300 hover:scale-110">
+            <img src="./asset/back.png" alt="Back"  class="w-full h-full">
+        </button></a>
+         <h1 class="text-4xl text-[#004D40] font-bold text-center">Crafting Your Perfect Sip</h1>
+        </div>
+
+   <main class="flex flex-col items-center bg-gradient-to-r from-[#e0f7ec] to-[#A8E6CF]  md:flex md:flex-row md:w-full md:justify-center md:items-center md:h-[800px]">
+
+    
+        <div class="drink-details flex flex-col items-center md:justify-center  bg-white rounded-lg shadow-md p-6 mb-8 w-full max-w-lg md:h-[620px] ">
+            
+            <img id="drink-image" src="" alt="Drink Image" class="w-full h-[250px] object-cover rounded-md mb-4">
+            <div class="drink-info text-center">
+                <h1 id="drink-name" class="text-2xl font-bold text-[#004D40] mb-2"></h1>
+                <p id="drink-description" class="text-[#555] text-lg mb-4"></p>
+                <h2 id="drink-price" class="text-2xl font-semibold text-[#004D40]">
+                    ₱<span id="price-span">0</span>
+                </h2>
+                <button type="button" class="btn bg-[#004D40] text-white py-2 px-6 rounded-md mt-4 hover:bg-[#00675b]" id="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+    <!-- Customization Section -->
+        <div class="customization-section bg-white p-6 rounded-lg shadow-md w-full max-w-lg md:h-fit">
+            <h2 class="text-2xl font-bold text-[#004D40] mb-6">Customize Your Drink</h2>
+            <form id="customize-form" class="space-y-6">
+                
+                <!-- Size Selection -->
+                <div class="form-group">
+                    <label for="size" class="block text-[#004D40] font-semibold mb-2">Choose a size:</label>
+                    <select id="size" name="size" onchange="updatePrice()" class="w-full p-3 bg-[#f4f4f4] border border-[#004D40] rounded-md focus:outline-none">
+                        <option value="Small" data-price="70">Small (₱70)</option>
+                        <option value="Medium" data-price="80">Medium (₱80)</option>
+                        <option value="Large" data-price="90">Large (₱90)</option>
+                        <option value="Extra-large" data-price="100">Extra Large (₱100)</option>
+                    </select>
+                </div>
+
+                <!-- Milk Base Selection -->
+                <div class="form-group">
+                    <label for="milk" class="block text-[#004D40] font-semibold mb-2">Milk Base:</label>
+                    <select id="milk" name="milk" onchange="updatePrice()" class="w-full p-3 bg-[#f4f4f4] border border-[#004D40] rounded-md focus:outline-none">
+                        <option value="Regular Milk">Regular Milk</option>
+                        <option value="Non-Dairy">Non-Dairy (Almond, Soy, Oat)</option>
+                        <option value="Coconut Milk">Coconut Milk</option>
+                        <option value="Lactose-Free Milk">Lactose-Free Milk</option>
+                        <option value="Evaporated Milk">Evaporated Milk</option>
+                    </select>
+                </div> 
+
+                <!-- Sugar Level Selection -->
+                <div class="form-group">
+                    <label for="sugar-level" class="block text-[#004D40] font-semibold mb-2">Sugar Level:</label>
+                    <select id="sugar-level" name="sugar-level" onchange="updatePrice()" class="w-full p-3 bg-[#f4f4f4] border border-[#004D40] rounded-md focus:outline-none">
+                        <option value="0%">0%</option>
+                        <option value="25%">25%</option>
+                        <option value="50%">50%</option>
+                        <option value="75%">75%</option>
+                        <option value="100%" selected>100%</option>
+                    </select>
+                </div>
+
+                <!-- Ice Level Selection -->
+                <div class="form-group">
+                    <label for="ice-level" class="block text-[#004D40] font-semibold mb-2">Ice Level:</label>
+                    <select id="ice-level" name="ice-level" onchange="updatePrice()" class="w-full p-3 bg-[#f4f4f4] border border-[#004D40] rounded-md focus:outline-none">
+                        <option value="No Ice">No Ice</option>
+                        <option value="Light Ice">Light Ice</option>
+                        <option value="Regular Ice">Regular Ice</option>
+                        <option value="Extra Ice">Extra Ice</option>
+                    </select>
+                </div>
+
+                <!-- Add-ons Selection -->
+                <div class="form-group">
+                    <label for="add-ons" class="block text-[#004D40] font-semibold mb-2">Add-ons:</label>
+                    <div class="checkbox-group space-y-2">
+                        <label class="flex items-center gap-2">
+                            <input type="checkbox" id="tp" name="add-ons" value="Tapioca Pearls" data-price="15" onchange="updatePrice()" class="form-checkbox text-[#004D40]"> Tapioca Pearls (+₱15)
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input type="checkbox" id="pud" name="add-ons" value="Pudding" data-price="20" onchange="updatePrice()" class="form-checkbox text-[#004D40]"> Pudding (+₱20)
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input type="checkbox" id="cj" name="add-ons" value="Coconut Jelly" data-price="15" onchange="updatePrice()" class="form-checkbox text-[#004D40]"> Coconut Jelly (+₱15)
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input type="checkbox" id="wc" name="add-ons" value="Whipped Cream" data-price="15" onchange="updatePrice()" class="form-checkbox text-[#004D40]"> Whipped Cream (+₱15)
+                        </label>
+                        <label class="flex items-center gap-2">
+                            <input type="checkbox" id="mf" name="add-ons" value="Milk Foam" data-price="15" onchange="updatePrice()" class="form-checkbox text-[#004D40]"> Milk Foam (+₱15)
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
+   
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="cart-modal fixed top-0 right-[-100%] w-[320px] h-full bg-gradient-to-r from-[#e0f7ec] to-[#f7f9fc] shadow-xl transition-all duration-300 ease-in-out z-60 flex flex-col overflow-y-auto">
+        <div class="cart-header bg-[#004D40] text-white p-4 flex justify-between items-center">
+            <h2 class="m-0">Shopping Cart</h2>
+            <button id="close-cart" class="close-cart text-white text-2xl">&times;</button>
+        </div>
+        <div class="cart-items overflow-y-auto p-4 max-h-[calc(100vh-150px)] mb-2">
+            <!-- Items dynamically added here -->
+        </div>
+        <div class="cart-footer p-4 bg-[#f7f9fc]">
+            <h3>Total: ₱<span id="cart-total">0</span></h3>
+            <button id="checkout-btn" class="bg-[#004D40] text-white py-2 px-4 rounded-md hover:bg-[#00675b] mt-4">Check Out</button>
+        </div>
+    </div>
+
+    <!-- Floating Cart Tab -->
+    <div id="cart-tab" class="cart-tab fixed bottom-4 right-4 bg-[#004D40] p-3 rounded-full flex justify-center items-center cursor-pointer hover:bg-[#00675b]">
+        <div class="cart-tab-content text-white flex items-center">
+            <img src="./asset/cart.png" alt="Cart Icon" class="w-6 h-6 mr-2">
+            <span id="cart-count">0</span>
+        </div>
+    </div>
+</main>
+
+</div>
+
+<script src="./js/customize.js"></script>
+</body>
+</html>

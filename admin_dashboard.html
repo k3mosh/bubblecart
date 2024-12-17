@@ -84,38 +84,33 @@
                 <div class="h-full w-full  flex flex-col md:flex md:f justify-start items-center">
                     <div class="w-full h-fit pt-[20px]"><p class="font-bold text-[32px] text-[#2B8A6D] md:hidden">Dashboard</p></div>
 
-                    <div class="w-full h-[480px] md:h-[320px] py-4 gap-y-4 md:gap-x-11 flex flex-col justify-start items-center md:flex md:flex-row md:items-center md:justify-center">
+                    <div class="w-full h-[480px] md:h-full py-4 gap-y-4 md:gap-x-11 flex flex-col justify-start items-center md:flex md:flex-row md:items-center md:justify-center">
 
-                        <div class="w-full h-1/4 md:h-[300px] md:w-[300px] bg-[#2B8A6D] flex flex-row justify-center items-start rounded-[20px] md:flex md:flex-col md:justify-center md:items-center">
-                            <div class="w-[140px] h-fit flex flex-col justify-start items-center pt-2 gap-3 md:w-full"><p class="font-bold text-[22px] text-[#D3F2E7] md:text-[48px]">Total Sales</p><i class="fa-solid fa-chart-simple font-bold text-[26px] text-[#D3F2E7] md:text-[48px]"></i>
+                        <div class="w-full h-1/4 md:h-[400px] md:w-[400px] bg-[#2B8A6D] flex flex-row justify-center items-start rounded-[20px] md:flex md:flex-col md:justify-center md:items-center">
+                            <div class="w-[140px] h-fit flex flex-col justify-start items-center pt-2 gap-3 md:w-full">
+                                <p class="font-bold text-[22px] text-[#D3F2E7] md:text-[48px]">Customers</p>
+                                <i class="fa-solid fa-user font-bold text-[26px] text-[#D3F2E7] md:text-[48px]"></i>
                             </div>
-                            <div class="w-[175px] h-full flex justify-center items-center md:w-full"><p class="font-bold text-[40px] text-[#D3F2E7] md:text-[48px]"> ₱1234567</p></div>
+                            <div class="w-[175px] h-full flex justify-center items-center md:w-full">
+                                <!-- Displaying the user count here -->
+                                <p class="font-bold text-[40px] text-[#D3F2E7] md:text-[48px]" id="userCount">0</p>
+                            </div>
                         </div>
+                        
 
-                        <div class="w-full h-1/4 md:h-[300px] md:w-[300px] bg-[#2B8A6D] flex flex-row justify-center items-start rounded-[20px] md:flex md:flex-col md:justify-center md:items-center">
-                            <div class="w-[140px] h-fit flex flex-col justify-start items-center pt-2 gap-3 md:w-full"><p class="font-bold text-[22px] text-[#D3F2E7] md:text-[48px]">Total Orders</p><i class="fa-solid fa-cart-shopping font-bold text-[26px] text-[#D3F2E7] md:text-[48px]"></i>
+                        <div class="w-full h-1/4 md:h-[400px] md:w-[400px] bg-[#2B8A6D] flex flex-row justify-center items-start rounded-[20px] md:flex md:flex-col md:justify-center md:items-center">
+                            <div class="w-[140px] h-fit flex flex-col justify-start items-center pt-2 gap-3 md:w-full">
+                                <p class="font-bold text-[22px] text-[#D3F2E7] md:text-[48px]">Inventory</p>
+                                <i class="fa-solid fa-box font-bold text-[26px] text-[#D3F2E7] md:text-[48px]"></i>
                             </div>
-                            <div class="w-[175px] h-full flex justify-center items-center md:w-full"><p class="font-bold text-[40px] text-[#D3F2E7] md:text-[48px]">1234567</p></div>
-                        </div>
-
-                        <div class="w-full h-1/4 md:h-[300px] md:w-[300px] bg-[#2B8A6D] flex flex-row justify-center items-start rounded-[20px] md:flex md:flex-col md:justify-center md:items-center">
-                            <div class="w-[140px] h-fit flex flex-col justify-start items-center pt-2 gap-3 md:w-full"><p class="font-bold text-[22px] text-[#D3F2E7] md:text-[48px]">Customers</p><i class="fa-solid fa-user font-bold text-[26px] text-[#D3F2E7] md:text-[48px]"></i>
+                            <div class="w-[175px] h-full flex justify-center items-center md:w-full">
+                                <p id="avgStockQuantity" class="font-bold text-[40px] text-[#D3F2E7] md:text-[48px]">0</p>
                             </div>
-                            <div class="w-[175px] h-full flex justify-center items-center md:w-full"><p class="font-bold text-[40px] text-[#D3F2E7] md:text-[48px]">1234567</p></div>
                         </div>
-
-                        <div class="w-full h-1/4 md:h-[300px] md:w-[300px] bg-[#2B8A6D] flex flex-row justify-center items-start rounded-[20px] md:flex md:flex-col md:justify-center md:items-center">
-                            <div class="w-[140px] h-fit flex flex-col justify-start items-center pt-2 gap-3 md:w-full "><p class="font-bold text-[22px] text-[#D3F2E7] md:text-[48px]">Inventory</p><i class="fa-solid fa-box font-bold text-[26px] text-[#D3F2E7] md:text-[48px]"></i>
-                            </div>
-                            <div class="w-[175px] h-full flex justify-center items-center md:w-full "><p class="font-bold text-[40px] text-[#D3F2E7] md:text-[48px]">1234567</p></div>
-                        </div>
+                        
                     </div>
 
-                     <!-- Container for the chart -->
-                    <div class="bg-[#2B8A6D] p-6 rounded-lg shadow-lg max-w-3xl w-full md:mt-9 md:h-[520px] md:w-[820px]">
-                        <h2 class="text-2xl font-bold text-center text-[#D3F2E7] mb-4 md:text-[40px]">Sales Data Chart</h2>
-                        <canvas id="myChart" width="400" height="200"></canvas>
-                    </div>
+                   
                 </div>
 
                 <div>
@@ -145,66 +140,7 @@
     
 
     <script src="https://cdn.tailwindcss.com"> </script>
-    <script> // Prepare chart data
-         // Prepare chart data
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line', // Type of chart (line chart)
-    data: {
-        labels: ['January', 'February', 'March', 'April', 'May'], // X-axis labels
-        datasets: [{
-            label: 'Sales (₱)',
-            data: [120, 150, 180, 130, 170], // Y-axis data (sales values)
-            fill: false, // Disable the fill under the line
-            borderColor: 'rgba(255, 255, 255, 1)', // Line color (white)
-            tension: 0.1, // Smoothness of the line curve
-            borderWidth: 2 // Line width
-        }]
-    },
-    options: {
-        responsive: true, // Makes the chart responsive to screen size
-        scales: {
-            y: {
-                beginAtZero: true, // Start Y-axis at 0
-                ticks: {
-                    stepSize: 20, // Set the interval for Y-axis ticks
-                    color: 'white' // Set tick color to white
-                }
-            },
-            x: {
-                ticks: {
-                    color: 'white' // Set X-axis tick color to white
-                }
-            }
-        },
-        plugins: {
-            legend: {
-                labels: {
-                    color: 'white' // Set legend text color to white
-                }
-            }
-        }
-    }
-});
-// Function to open the logout modal
-function openLogoutModal() {
-    document.getElementById('logoutModal').classList.remove('hidden');
-}
-
-// Function to close the logout modal
-function closeLogoutModal() {
-    document.getElementById('logoutModal').classList.add('hidden');
-}
-
-// Function to handle logout confirmation (you can customize this as needed)
-function confirmLogout() {
-    // Perform logout actions here, e.g., redirect to a logout page
-    window.location.href = 'index.html';
-    alert('Logged out successfully!');
-    closeLogoutModal();
-}
-
-        </script>
+    <script src="js/admin_dashboard.js"> </script>
  
        
 </body>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/admin_login.css"> <!-- Your main CSS file -->
+    <title>Signup</title>
+</head>
+<body>
+    <div class="login-container">
+        <!-- Back Button -->
+        <button onclick="history.back()" class="back-button">
+            <img src="./asset/back.png" alt="Back">
+        </button>
+    
+        <h1>Customer Sign Up</h1>
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" pattern="^09\d{9}$" placeholder="09123456789" required>
+
+
+            </div>
+            <div class="form-group">
+                <label for="barangay">Barangay:</label>
+                <select id="barangay" name="barangay" required>
+                    <option value="">Select Barangay</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="street">Street:</label>
+                <select id="street" name="street" required>
+                    <option value="">Select Street</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <button type="submit" class="login-button">Sign Up</button>
+        </form>
+        <p id="error-message" style="color: red; display: none;"></p>
+        <p class="link-text">Already have an account? <a href="login.html">Login</a></p>
+    </div>
+    <!-- Success Modal -->
+<div id="success-modal" class="modal-signup" style="display: none;">
+    <div class="modal-content-signup">
+        <span id="close-modal" class="close-signup">&times;</span>
+        <p id="modal-message"></p>
+    </div>
+</div>
+
+    <script src="./js/signup.js"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+/* General Styling */
+body {
+    font-family: 'Baloo 2', sans-serif;
+    margin: 0;
+    background: linear-gradient(to right, #e0f7ec, #A8E6CF);
+    display: flex;
+    justify-content: center; /* Horizontally centers the container */
+    align-items: center; /* Vertically centers the container */
+    min-height: 100vh; /* Makes the body take up the full height of the viewport */
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(43, 138, 109, 0.9);
+    padding: 15px;
+    color: #ffffff;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 45px;
+    margin-left: 40px;
+}
+
+.navigation-left a, .navigation-right a {
+    color: #004D40;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 15px;
+}
+
+.admin-icon img {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.admin-icon img:hover {
+    transform: scale(1.1);
+}
+
+/* Login Page Styling */
+.login-container {
+    position: relative; /* Allow positioning of child elements like the back button */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px; /* Limit the width so it doesn't take up too much space */
+    padding: 20px;
+    background: linear-gradient(to right, #a8e6cf, #dcedc1);
+    border-radius: 10px; /* Adds a rounded edge */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+}
+
+.login-container h1 {
+    font-size: 2.5rem;
+    color: #004D40;
+    margin-bottom: 20px;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: bolder;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: bolder;
+    color: #004D40;
+}
+
+input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #004D40;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #206953;
+}
+
+/* Back Button Styling */
+.back-button {
+    position: absolute; /* Position relative to the login container */
+    top: 10px; /* Adjust spacing from the top */
+    left: 10px; /* Adjust spacing from the left */
+    width: auto; /* Icon size */
+    height: 40px; /* Icon size */
+    border: none;
+    background-color: transparent; /* No background for the icon */
+    cursor: pointer;
+    z-index: 10; /* Ensure it stays above other elements in the container */
+    transition: transform 0.3s ease; /* Adds hover effect */
+    opacity: calc(70%);
+}
+
+.back-button img {
+    width: 100%; /* Make the image fit within the button */
+    height: 100%; /* Make the image fit within the button */
+}
+
+.back-button:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+
+/* style for signup */
+
+/* Dropdown Styling */
+select {
+    width: 100%; /* Full width for better alignment */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    appearance: none; /* Removes default browser styling for dropdowns */
+    outline: none; /* Removes focus outline */
+}
+
+select:focus {
+    border-color: #004D40; /* Highlight color on focus */
+    box-shadow: 0 0 5px rgba(0, 77, 64, 0.5); /* Subtle glow on focus */
+}
+
+option {
+    padding: 10px;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+}
+
+/* Modal Styling */
+.modal-signup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content-signup {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 80%;
+}
+
+.modal-content-signup p {
+    font-size: 1.2rem;
+    color: #004D40;
+    margin: 10px 0;
+}
+
+.close-signup {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}

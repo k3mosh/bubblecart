@@ -1,8 +1,9 @@
+const errorMessage = document.getElementById('error-message');
 document.addEventListener('DOMContentLoaded', () => {
     const barangaySelect = document.getElementById('barangay');
     const streetSelect = document.getElementById('street');
     const form = document.getElementById('signup-form');
-    const errorMessage = document.getElementById('error-message');
+
 
     const barangayToStreets = {
         "Barangay 1": ["Mabini Street", "Rizal Street", "Del Pilar Street"],
@@ -86,7 +87,7 @@ form.addEventListener('submit', async (e) => {
     formData.append('password', password);
 
     try {
-        const response = await fetch('https://khaki-stingray-740394.hostingersite.com/php/customer_signup.php', { method: 'POST', body: formData });
+        const response = await fetch('/php/customer_signup.php', { method: 'POST', body: formData });
         const result = await response.json();
 
         if (result.success) {
@@ -99,6 +100,38 @@ form.addEventListener('submit', async (e) => {
         displayError('An unexpected error occurred. Please try again later.');
     }
 });
+function menu() {
+    const burger = document.getElementById("burger");
+    const menu = document.getElementById("menu");
 
+    // Toggle the menu visibility
+    menu.classList.toggle("opacity-0");
+    menu.classList.toggle("opacity-100");
+    menu.classList.toggle("translate-x-full");
+    menu.classList.toggle("translate-x-0");
+
+    // Animate the burger to X
+    burger.classList.toggle("open");
+}
+function displayError(message) {
+    errorMessage.textContent = message;
+    errorMessage.style.display = 'block';
+} 
+const firstForm = document.getElementById('first-form');
+const secondForm = document.getElementById('second-form');
+const nextBtn = document.getElementById('next-btn');
+const backBtn = document.getElementById('back-btn');
+
+// Move to the next form
+nextBtn.addEventListener('click', () => {
+    firstForm.classList.add('hidden');
+    secondForm.classList.remove('hidden');
+});
+
+// Go back to the first form
+backBtn.addEventListener('click', () => {
+    secondForm.classList.add('hidden');
+    firstForm.classList.remove('hidden');
+});
 populateBarangays();
 });

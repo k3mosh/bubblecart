@@ -171,32 +171,21 @@
 
                                       
                                 </div>
-                                <div class="bg-[#2B8A6D] p-6 rounded-lg shadow-lg w-full h-[270px] mt-3 md:h-[320px] md:w-[1040px] md:text-[18px]">
+                                <div class="bg-[#2B8A6D] p-6 rounded-lg shadow-lg w-full h-[500px] mt-3 md:h-[620px] md:w-[1040px] md:text-[18px]">
                                     <div id="x" class="w-full h-full overflow-x-auto">
                                         <!-- Header Row with Fixed Widths and Centered Text -->
-                                        <div class="sticky top-0 flex flex-row gap-3 text-[#A8E6CF] font-baloo2 font-bold whitespace-nowrap w-max px-2 bg-[#2B8A6D] z-10 md:px-4 ">
-                                            <p class="w-[60px] text-center">Id</p>
-                                            <p class="w-[120px] text-center">Username</p>
-                                            <p class="w-[150px] text-center">Name</p>
-                                            <p class="w-[200px] text-center">Address</p>
-                                            <p class="w-[150px] text-center">Phone</p>
-                                            <p class="w-[235px] pl-8 md:w-fit md:pl-0 md:text-center">Date Account Created</p>
+                                        <div class="sticky top-0 flex flex-row gap-3 text-[#A8E6CF] font-baloo2 font-bold whitespace-nowrap w-full px-2 bg-[#2B8A6D] z-10  ">
+                                            <p class="w-1/5 text-center flex justify-center items-center">Id</p>
+                                            <p class="w-1/5 text-center flex justify-center items-center">Username</p>
+                                            <p class="w-1/5 text-center flex justify-center items-center pr-6">Name</p>
+                                            <p class="w-1/5 text-center flex justify-center items-center pr-14">Address</p>
+                                            <p class="w-1/5 text-center flex justify-center items-center pr-16">Phone</p>
                                         </div>
                                         <!-- Data Rows -->
                                          <!-- Data Rows Container with Vertical Scroll -->
-                                    <div id="y" class="w-max h-fit overflow-y-auto">
+                                    <div id="y" class="w-full h-fit overflow-y-auto">
                                         <!-- Data Row -->
-                                        <div class="w-max h-9 bg-[#A8E6CF] rounded-[20px] px-3 flex justify-center items-center mb-3">
-                                            <div class="flex flex-row gap-3 text-[#004d40] font-baloo2 font-bold px-2  md:text-[18px]">
-                                                <p class="w-[60px] text-center">1</p>
-                                                <p class="w-[120px] text-center">kemosh</p>
-                                                <p class="w-[150px] text-center">Allen Mateo</p>
-                                                <p class="w-[200px] text-center">Barangay 1, Daet</p>
-                                                <p class="w-[150px] text-center">09212882391</p>
-                                                <p class="w-[180px] text-center">00-00-0000</p>
-                                                <i class="fa-solid fa-trash flex items-center justify-center cursor-pointer"></i>
-                                            </div>
-                                        </div>
+                                    
                                         <!-- Repeat similar data rows here -->
                                       
                                      
@@ -208,62 +197,7 @@
 
                             </div>
 
-                            <div class="w-full h-[320px] md:h-full mt-5">
-                                <div class="w-full h-[40px] flex flex-row justify-center items-center space-x-3 md:w-[1040px]">
-
-                                    <div class="w-2/3 h-full flex items-center justify-center md:justify-start">
-                                        <p class="text-[#2B8A6D] text-[26px] font-baloo2 font-bold md:text-[52px]">Latest Orders</p>
-                                    </div>
-
-                                    <div class="flex justify-center items-center h-full w-1/3">
-                                        <div class="relative w-full">
-                                            <!-- Dropdown -->
-                                            <select id="filter" class="block md:text-[22px] appearance-none w-full text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-[20px] px-5 pr-8 h-9 text-[#9FA7A5]">
-                                                <option value="" disabled selected>Sort</option>
-                                                <option value="oldest">Oldest</option>
-                                                <option value="newest">Newest</option>
-                                            </select>
-                                    
-                                            <!-- Dropdown Icon -->
-                                            <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-                                                <i class="fa-solid fa-chevron-down text-[#9FA7A5]"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <div class="bg-[#2B8A6D] p-6 rounded-lg shadow-lg  w-full h-[390px] mt-3 md:w-[1020px]">
-                                    <div id="x" class="w-full h-full overflow-x-auto">
-                                        <!-- Header Row with Fixed Widths and Centered Text -->
-                                        <div class="sticky top-0 flex flex-row gap-3 text-[#A8E6CF] font-baloo2 font-bold whitespace-nowrap w-max px-4 bg-[#2B8A6D] z-10  md:text-[18px]">
-                                            <p class="w-[60px] text-center">Order ID</p>
-                                            <p class="w-[120px] text-center">Customer </p>
-                                            <p class="w-[150px] text-center">Item Name</p>
-                                            <p class="w-[200px] text-center">Order Price</p>
-                                            <p class="w-[150px] text-center">Order Quantity</p>
-                                            <p class="w-[180px] text-center">Order Date</p>
-                                        </div>
-                                        <!-- Data Rows -->
-                                         <!-- Data Rows Container with Vertical Scroll -->
-                                    <div id="y" class="w-max h-fit overflow-y-auto">
-                                        <!-- Data Row -->
-                                        <div class="w-max h-9 bg-[#A8E6CF] rounded-[20px] px-3 flex justify-center items-center mb-3">
-                                            <div class="flex flex-row gap-3 text-[#004d40] font-baloo2 font-bold px-2  md:text-[18px]">
-                                                <p class="w-[60px] text-center">1</p>
-                                                <p class="w-[120px] text-center">kemosh</p>
-                                                <p class="w-[150px] text-center">Matcha</p>
-                                                <p class="w-[200px] text-center">P 999</p>
-                                                <p class="w-[150px] text-center">2</p>
-                                                <p class="w-[180px] text-center">00-00-0000</p>
-      
-                                            </div>
-                                        </div>
-                                   
-                                    </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                           
                         </div>
                         
 
@@ -297,37 +231,10 @@
 
 
     <script src="https://cdn.tailwindcss.com"> </script>
-    <script> 
+    <script src="js/admin_customers.js"> 
     
    
-                                    function toggleDropdown() {
-                                      const dropdown = document.getElementById("dropdownMenu");
-                                      dropdown.classList.toggle("hidden");
-                                    }
                                   
-                                    function filterOption(option) {
-                                      alert(`Selected: ${option}`);
-                                      toggleDropdown();
-                                    }
-                                 
-        // Function to open the logout modal
-        function openLogoutModal() {
-            document.getElementById('logoutModal').classList.remove('hidden');
-        }
-
-        // Function to close the logout modal
-        function closeLogoutModal() {
-            document.getElementById('logoutModal').classList.add('hidden');
-        }
-
-        // Function to handle logout confirmation (you can customize this as needed)
-        function confirmLogout() {
-            // Perform logout actions here, e.g., redirect to a logout page
-            window.location.href = 'index.html';
-            alert('Logged out successfully!');
-            closeLogoutModal();
-        }
-
     </script>
 
 

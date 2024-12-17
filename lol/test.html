@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="test.css">
+    <title>Home-Tailwind</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="../asset/logo.png" alt="logo" class="logo">
+            <div class="nav-links">
+                <a href="">Home</a>
+                <a href="shop.html">Craft Now</a>
+                <a href="about.html">About Us</a>
+            </div>
+        </div>
+        <div class="header-actions">
+            <a id="login-link" href="user_login.html">Log In</a>
+            <a id="signup-link" href="user_signup.html">Sign Up</a>
+            <a id="account-tab" class="hidden" href="account.html">Account</a>
+            <a class="fa-solid fa-user" href="admin.html"></a>
+        </div>
+        <div id="burger" class="burger" onclick="menu()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="main-content">
+            <div class="text-content">
+                <p class="main-text">Craft it your way, Cart it today</p>
+                <p class="sub-text">Discover endless milk tea possibilities. Customize, enjoy, and make every sip uniquely yours.</p>
+                <a href="shop.html" class="cta-button">Craft Now</a>
+            </div>
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="../asset/mt1.png" alt="Milk Tea 2">
+                    <p class="carousel-name">Matcha Majesty</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="../asset/purple.png" alt="Milk Tea 2">
+                    <p class="carousel-name">Purple Delight</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="../asset/mt3.png" alt="Milk Tea 3">
+                    <p class="carousel-name">Caramel Cloud</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Modal -->
+    <div id="menu" class="menu">
+        <div id="content" class="menu-content">
+            <div class="menu-close">
+                <a class="fa-solid fa-user" href="admin.html"></a>
+            </div>
+            <div class="menu-item"><a href="">Home</a></div>
+            <div class="menu-item"><a href="shop.html">Craft Now</a></div>
+            <div class="menu-item"><a href="about.html">About Us</a></div>
+            <div class="menu-item"><a href="user_login.html">Log In</a></div>
+            <div class="menu-item"><a href="user_signup.html">Sign Up</a></div>
+            <div class="menu-item hidden"><a href="">Account</a></div>
+        </div>
+    </div>
+
+    <script src="test.js"></script>
+</body>
+</html>
