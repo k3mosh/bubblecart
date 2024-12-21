@@ -318,7 +318,7 @@ function updateQuantity(uniqueId, delta) {
             document.getElementById('login-link').style.display = 'inline-block';
             document.getElementById('signup-link').style.display = 'inline-block';
             document.getElementById('account-tab').style.display = 'none';
-            document.querySelector('.admin-icon').style.display = 'block';
+            document.querySelector('.admin-icon').style.display = 'inline-block';
         }
     }
 
